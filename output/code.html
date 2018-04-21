@@ -1,9 +1,82 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>OddSlingers Labs | Code &amp; Open Source</title>
 
-{% block title %}Code &amp; Open Source{% endblock %}
-{% block subtitle %}Projects{% endblock %}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="static/bootstrap4-pleasant.min.css">
+        <link rel="stylesheet" href="static/main.css">
 
-{% block article %}
+        
+        
+    </head>
+    
+    <body>
+        
+        <header>
+            
+            
+
+            <nav class="navbar navbar-expand-sm navbar-light" data-toggle="affix">
+                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse text-center">
+                        <ul class="navbar-nav navbar-left" style="min-width: 370px;border: 0px solid red;">
+                            <li class="nav-item active" style="margin-right: 5px">
+                                <a class="nav-link" href="/index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/code.html">Projects</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/articles.html">Articles</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/team.html">Team</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 5px; margin-right: 5px">
+                                <a class="nav-link" href="/whitepaper.html">Whitepaper</a>
+                            </li>
+                        </ul>
+                        
+                        <h1 class="nav-item main-brand-link">
+                            
+                            <a href="/index.html">OddSlingers Labs</a><br/>
+                            <small><i class="fa fa-angle-double-right"></i>  Projects <i class="fa fa-angle-double-left"></i></small>
+                        </h1>
+
+                        <ul class="navbar-nav navbar-right" style="min-width:370px;border: 0px solid red;">
+                            <li class="nav-item" style="margin-left: 15px">
+                                <a class="nav-link" href="/apply.html">Become a Streamer</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 25px;"">
+                                <a class="beta-btn nav-link btn btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
+                                    ♠<span class="diamond">♦</span>
+                                    Play (<span class="neon">BETA</span>)&nbsp;
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        
+        
+
+        
+        <article>
+            
     <div class="row" style="background-color: #1A1A1A; ">
         <canvas class="animated-color-grid" height="100"></canvas>
         <div class="container">
@@ -15,7 +88,7 @@
                     <div style="background: #fff; border-radius: 15px; padding: 20px 10px; min-height: 210px">
                         <h2><img src="static/oddslingers-text.png" style="height: 80px"/></h2>
                         <p>Free play-chip poker with live video streaming &amp; side-betting</p>
-                        <a href="{{BLITZKA.Signup.url}}" class="btn beta-btn btn-shadow btn-success" style="font-size: 22px">
+                        <a href="https://oddslingers.com/accounts/login/" class="btn beta-btn btn-shadow btn-success" style="font-size: 22px">
                             ♠<span class="diamond">♦</span> Play the Poker <span class="neon">BETA</span> ♠<span class="diamond">♦</span>
                         </a>
                     </div>
@@ -146,7 +219,7 @@
 
         <br/>
         <center>
-            For technical articles &amp; posts, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page.<br/><br/>
+            For technical articles &amp; posts, see the <a href="/articles.html">Articles</a> page.<br/><br/>
             <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
                 <i class="fa fa-github"></i> Github
             </a>
@@ -162,6 +235,57 @@
         <br/><br/><br/><br/>
     </div>
     <canvas class="animated-color-grid" height="100"></canvas>
-{% endblock %}
 
+        </article>
+        
 
+        
+        <footer>
+            
+            
+            <div class="container text-center text-darkgrey">
+                
+                    <br/><br/>
+                    <div class="social-links">
+    Follow us on:<br/><br/>
+    
+        &nbsp;
+        <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+        &nbsp;
+    
+        &nbsp;
+        <a href="https://github.com/Monadical-SAS" title="OddSlingers Github" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
+        &nbsp;
+    
+        &nbsp;
+        <a href="https://t.me/OddSlingers" title="OddSlingers Telegram" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a>
+        &nbsp;
+    
+        &nbsp;
+        <a href="https://discord.gg/USPweBy" title="OddSlingers Discord" target="_blank" rel="noopener"><i class="fa fa-gamepad"></i></a>
+        &nbsp;
+    
+</div>
+                
+
+                
+                    <br/>
+                    <small>OddSlingers © 2018</small>
+                    <br/>
+                
+
+            </div>
+            
+            
+        </footer>
+        
+
+        <script src="static/squares.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+        
+        
+    </body>
+</html>

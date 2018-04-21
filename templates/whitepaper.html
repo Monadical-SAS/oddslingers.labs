@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Whitepaper{% endblock %}
+{% block subtitle %}Whitepaper{% endblock %}
+
+{% block article %}
+    <style>
+        body {
+            background-color: #f6f6f6 !important;
+        }
+        header nav.navbar {
+            background: #f6f6f6;
+        }
+    </style>
+    <iframe src="https://oddslingers.com/whitepaper" style="height: 200vh"></iframe>
+
+
+    <br/><br/>
+    <center>
+        <a class="beta-btn nav-link btn btn-lg btn-success btn-shadow" href="{{BLITZKA.Signup.url}}">
+            <i>♠</i> <em>♦</em> &nbsp;
+            Play now with <span class="neon">5,000</span> free chips &nbsp;
+            <i>♣</i> <em>♥</em>
+        </a>
+        <br/><br/>
+        For code &amp; projects, see the <a href="{{PAGES.code.url}}">{{PAGES.code.title}}</a> page.<br/><br/>
+        <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
+            <i class="fa fa-github"></i> Github
+        </a>
+        &nbsp; 
+        <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-dark">
+            <i class="fa fa-twitter"></i> Twitter
+        </a>
+        &nbsp; 
+        <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-dark">
+            <i class="fa fa-linkedin"></i> LinkedIn
+        </a>
+    </center>
+    <br/><br/><br/><br/>
+    <canvas class="animated-color-grid" height="100"></canvas>
+{% endblock %}

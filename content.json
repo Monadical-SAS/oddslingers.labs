@@ -1,0 +1,100 @@
+{
+    "SITE_TITLE": "OddSlingers Labs",
+    "PAGES": {
+        "index": {
+            "title": "Home",
+            "url": "/index.html",
+            "template": "index.html"
+        },
+        "team": {
+            "title": "Team",
+            "url": "/team.html",
+            "template": "team.html"
+        },
+        "code": {
+            "title": "Projects",
+            "url": "/code.html",
+            "template": "code.html"
+        },
+        "articles": {
+            "title": "Articles",
+            "url": "/articles.html",
+            "template": "articles.html"
+        },
+        "whitepaper": {
+            "title": "Whitepaper",
+            "url": "/whitepaper.html",
+            "template": "whitepaper.html"
+        },
+        "apply": {
+            "title": "Become a Streamer",
+            "url": "/apply.html",
+            "template": "apply.html"
+        }
+    },
+    "POSTS": {
+        "trustless": {
+            "title": "The Myth of Trustlesness",
+            "url": "/posts/trustless.html",
+            "template": "/posts/trustless.html",
+            "tags": ["Game Theory", "Cryptocurrencies"],
+            "image": "/static/cryptocurrency.png"
+        },
+        "atomic": {
+            "date": "2018-04-20",
+            "title": "How I learned to stop worrying and love atomic()",
+            "url": "/posts/atomic.html",
+            "template": "/posts/atomic.html",
+            "tags": ["Django", "ORM", "Database Integrity"],
+            "image": "/static/cryptocurrency.png",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH"
+            }
+        }
+    },
+    "BLITZKA": {
+        "Signup": {"url": "https://oddslingers.com/accounts/login/"},
+        "About": {"url": "https://oddslingers.com/about/"},
+        "Presale": {"url": "https://oddslingers.com/presale/"}
+    },
+    "SOCIAL": {
+        "Twitter": {
+            "url": "https://twitter.com/OddSlingers",
+            "title": "OddSlingers Twitter",
+            "icon": "twitter"
+        },
+        // "Facebook": {
+        //     "url": "https://facebook.com/OddSlingers",
+        //     "title": "OddSlingers Facebook",
+        //     "icon": "facebook",
+        // },
+        // "LinkedIn": {
+        //     "url": "https://linkedin.com/OddSlingers",
+        //     "title": "OddSlingers LinkedIn",
+        //     "icon": "linkedin",
+        // },
+        "Github": {
+            "url": "https://github.com/Monadical-SAS",
+            "title": "OddSlingers Github",
+            "icon": "github"
+        },
+        // "Reddit": {
+        //     "url": "https://reddit.com/r/OddSlingers",
+        //     "title": "OddSlingers SubReddit",
+        //     "icon": "reddit",
+        // },
+        "Telegram": {
+            "url": "https://t.me/OddSlingers",
+            "title": "OddSlingers Telegram",
+            "icon": "telegram"
+        },
+        "Discord": {
+            "url": "https://discord.gg/USPweBy",
+            "title": "OddSlingers Discord",
+            "icon": "gamepad"
+        }
+    }
+}
