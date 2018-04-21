@@ -112,7 +112,7 @@ for (let elem of document.querySelectorAll('.animated-color-grid')) {
   sqrs.tick()
 
   window.addEventListener('resize', function(e) {
-      sqrs.options.width = elem.innerWidth
+      sqrs.options.width = document.body.offsetWidth
       sqrs.updateDimensions()
   })
 }

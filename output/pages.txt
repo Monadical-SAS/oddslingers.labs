@@ -1,0 +1,6 @@
+http://127.0.0.1:5000/index.html
+http://127.0.0.1:5000/team.html
+http://127.0.0.1:5000/code.html
+http://127.0.0.1:5000/articles.html
+http://127.0.0.1:5000/whitepaper.html
+http://127.0.0.1:5000/apply.html

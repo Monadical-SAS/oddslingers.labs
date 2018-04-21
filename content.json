@@ -33,31 +33,73 @@
         }
     },
     "POSTS": {
-        "Trustless-is-A-Myth": {
+        "trustless": {
+            "date": "2018-04-20",
             "title": "The Myth of Trustlesness",
             "url": "/posts/Trustless-is-A-Myth.html",
-            "template": "/posts/Trustless-is-A-Myth.html",
             "tags": ["Game Theory", "Cryptocurrencies"],
             "image": "/static/cryptocurrency.png",
+            "length": "10 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/SyBidc_hG",
+            "description": "The word “trustless” implies that trust has been removed from the system altogether. But in reality, systems like Bitcoin require plenty of trust, it's just less obvious.",
             "author": {
                 "name": "Max McCrea",
-                "title": "OddSlingers CTO",
-                "handle": "@theSquashSH",
-                "url": "https://twitter.com/theSquashSH"
+                "title": "OddSlingers CEO",
+                "handle": "@cowpig",
+                "url": "https://twitter.com/cowpig",
+                "image": "/static/max.jpg"
             }
         },
-        "Designing-A-Banking-System": {
+        "atomic": {
             "date": "2018-04-20",
             "title": "How I learned to stop worrying and love atomic()",
             "url": "/posts/Designing-A-Banking-System.html",
-            "template": "/posts/Designing-A-Banking-System.html",
             "tags": ["Django", "ORM", "Database Integrity"],
-            "image": "/static/cryptocurrency.png",
+            "length": "10 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/HJdHDKhjz",
+            "description": "Design strategies and common pitfalls that come into play when designing a banking service to handle concurrent transactions in a distributed environment.",
             "author": {
                 "name": "Nick Sweeting",
                 "title": "OddSlingers CTO",
                 "handle": "@theSquashSH",
-                "url": "https://twitter.com/theSquashSH"
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
+            }
+        },
+        "reconciling": {
+            "date": "2018-04-20",
+            "title": "Reconciling Django Templates With React Components",
+            "url": "/posts/Reconciling-Templates-With-Components.html",
+            "tags": ["Django", "React", "Templates", "SPA"],
+            "length": "6 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/Hks_9j_hz",
+            "description": "The fundamental issue is that Django wants you to build up your pages using template fragments, and React wants to pull you into its world with JS components as the main building blocks.",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
+            }
+        },
+        "redux": {
+            "date": "2018-04-20",
+            "title": "Using the Redux Store as a Database",
+            "url": "/posts/Using-Redux-As-A-Database.html",
+            "tags": ["Redux", "Index", "Memoization", "SQL"],
+            "length": "4 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/Skcz_hUhM",
+            "description": "Storing data in a normalized form allows us to calculate fast indexes for lookups.",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
             }
         }
     },
