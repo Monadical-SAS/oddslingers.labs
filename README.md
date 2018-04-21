@@ -1,9 +1,10 @@
 # [OddSlingers Labs](https://labs.oddslingers.com)
 
-Simple static website generator in Flask for OddSlingers Labs.
+Simple static site powering OddSlingers Labs.
 
-All content metadata is stored in `content.json`.
+Static HTML is produced using a short custom website generator powered by Flask, Jinja2, & wget.
 
+All metadata is stored in `content.json`.
 Templates are in: `templates/`
 Static files are in: `templates/`
 
