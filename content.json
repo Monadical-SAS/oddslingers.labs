@@ -33,18 +33,24 @@
         }
     },
     "POSTS": {
-        "trustless": {
+        "Trustless-is-A-Myth": {
             "title": "The Myth of Trustlesness",
-            "url": "/posts/trustless.html",
-            "template": "/posts/trustless.html",
+            "url": "/posts/Trustless-is-A-Myth.html",
+            "template": "/posts/Trustless-is-A-Myth.html",
             "tags": ["Game Theory", "Cryptocurrencies"],
-            "image": "/static/cryptocurrency.png"
+            "image": "/static/cryptocurrency.png",
+            "author": {
+                "name": "Max McCrea",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH"
+            }
         },
-        "atomic": {
+        "Designing-A-Banking-System": {
             "date": "2018-04-20",
             "title": "How I learned to stop worrying and love atomic()",
-            "url": "/posts/atomic.html",
-            "template": "/posts/atomic.html",
+            "url": "/posts/Designing-A-Banking-System.html",
+            "template": "/posts/Designing-A-Banking-System.html",
             "tags": ["Django", "ORM", "Database Integrity"],
             "image": "/static/cryptocurrency.png",
             "author": {
