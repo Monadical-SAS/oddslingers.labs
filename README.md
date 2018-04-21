@@ -56,3 +56,7 @@ Static files are in: `templates/`
 Static HTMML output will be produced in `output/`, and can be rsyned to a server using:
 
 `rsync -r output/ labs.oddslingers.com:/opt/labs.oddslingers.com/output`
+
+## Stack
+
+The static site generator is build using Flask + Jinja2 and wget to save the output as static html.
