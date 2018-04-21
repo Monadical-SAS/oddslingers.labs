@@ -1,25 +1,50 @@
 #!/bin/bash
 
-./app.py &
+normal=$(tput sgr0)
+red=${txtbld}$(tput setaf 1)
+blue=${txtbld}$(tput setaf 4)
+green=${txtbld}$(tput setaf 2)
+white=${txtbld}$(tput setaf 7)
+current_branch=$(git rev-parse --abbrev-ref HEAD)
 
+echo "$blue[+] Starting Flask server...$normal"
+./app.py > /dev/null &
 sleep 1.5
 
 rm -Rf output
 mkdir output
-
 cp -r static output/static
+
 cd output
+echo "$blue[+] Building pages HTML...$normal"
 wget -q http://127.0.0.1:5000/index.html
 wget -q http://127.0.0.1:5000/code.html
 wget -q http://127.0.0.1:5000/articles.html
 wget -q http://127.0.0.1:5000/team.html
 wget -q http://127.0.0.1:5000/whitepaper.html
 wget -q http://127.0.0.1:5000/apply.html
+mkdir posts
+cd posts
+wget -q http://127.0.0.1:5000/posts/Designing-A-Banking-System.html
+wget -q http://127.0.0.1:5000/posts/Trustless-is-A-Myth.html
+cd ../..
 
-kill %1
+# echo "$red[*] Stopping Flask server...$normal"
+kill %1 > /dev/null
+echo ""
+echo "$green[√] Build of static site complete.$normal"
+echo ""
+echo ""
+echo "$red Deploying & committing in 3 sec, press Ctrl+C to cancel..."
+echo ""
+sleep 3
+echo ""
+echo "$blue[^] Pushing build to git...$normal"
+git add output
+git commit -q --short -m "built static site" > /dev/null
+git push origin "$current_branch":live --force
 
-cd ..
+echo "$blue[^] Deploying to https://labs.oddslingers.com...$normal"
+rsync -r output/ labs.oddslingers.com:/var/www/80/oddslingers
 
-rsync -r output/ nicksweeting.com:/var/www/80/oddslingers
-
-echo "[√] Build & Deploy to labs.oddslingers.com complete."
+echo "$green[√] Deploy to https://labs.oddslingers.com complete.$normal"
