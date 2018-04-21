@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>OddSlingers Labs | Home</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="static/bootstrap4-pleasant.min.css">
+        <link rel="stylesheet" href="static/main.css">
+
+        
+        
+    </head>
+    
+    <body>
+        
+        <header>
+            
+            
+
+            <nav class="navbar navbar-expand-sm navbar-light" data-toggle="affix">
+                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse text-center">
+                        <ul class="navbar-nav navbar-left" style="min-width: 370px;border: 0px solid red;">
+                            <li class="nav-item active" style="margin-right: 5px">
+                                <a class="nav-link" href="/index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/code.html">Projects</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/articles.html">Articles</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/team.html">Team</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 5px; margin-right: 5px">
+                                <a class="nav-link" href="/whitepaper.html">Whitepaper</a>
+                            </li>
+                        </ul>
+                        
+                        <h1 class="nav-item main-brand-link">
+                            
+                            <a href="/index.html">OddSlingers Labs</a><br/>
+                            <small><i class="fa fa-angle-double-right"></i>   <i class="fa fa-angle-double-left"></i></small>
+                        </h1>
+
+                        <ul class="navbar-nav navbar-right" style="min-width:370px;border: 0px solid red;">
+                            <li class="nav-item" style="margin-left: 15px">
+                                <a class="nav-link" href="/apply.html">Become a Streamer</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 25px;"">
+                                <a class="beta-btn nav-link btn btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
+                                    ♠<span class="diamond">♦</span>
+                                    Play (<span class="neon">BETA</span>)&nbsp;
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        
+        
+
+        
+        <article>
+            
+    
+    <h1 class="post-header">
+        How I learned to stop worrying and love atomic()<br/>
+        a.k.a
+    </h1>
+    <br/>
+    <div id="doc" class="markdown-body container col-md-8"><center>
+
+    <h1 id="architecting-a-banking-service-for-real-time-gaming-at-oddslingers"><a class="anchor hidden-xs" href="#architecting-a-banking-service-for-real-time-gaming-at-oddslingers" title="architecting-a-banking-service-for-real-time-gaming-at-oddslingers"><span class="octicon octicon-link"></span></a>Architecting a Banking service for <br> Real-Time Gaming at OddSlingers</h1>
+    <blockquote>
+    <i>Design strategies and common pitfalls that come into play when designing a banking service to handle concurrent transactions in a distributed environment.</i>
+    </blockquote>
+        <br/>
+        <img src="https://i.imgur.com/HYm9FeC.png" height="100px">
+        <br/><br/>
+    </center><p>Examples talk specifically about the Django app which powers our real-time poker &amp; sidebetting platform at <a href="http://OddSlingers.com" target="_blank">OddSlingers.com</a>, but the concepts should apply equally well to SQLAlchemy, Active Record, or other ORMs.</p><hr><h2 id="intro" style=""><a class="anchor hidden-xs" href="#intro" title="intro"><span class="octicon octicon-link"></span></a>Intro</h2><p>Our goal today is to design a banking service for an app which can handle a user depositing and withdrawing money, and using that money to cash in and out of poker games.</p><p>In online poker, users buys chips to put into a “wallet” and use them to play at multiple poker tables simultaneously, occasionally “rebuying” more chips or cashing out for dollars.</p><p><strong>Our aim to prevent concurrent requests like game actions or money transfers from ever leaving our data in an inconsistent state.</strong></p><center>
+    <p><img src="https://i.imgur.com/49bHDqr.png" alt=""></p>
+    </center><p>The techniques we cover aren’t unique to poker &amp; gaming though, data integrity is equally critical for financial, healthcare, any any other sector that handles sensitive information.</p><p>This post expands on the basics introduced in our much shorter post: <a href="https://invalidpatent.wordpress.com/2016/08/03/two-approaches-to-concurrent-write-safety-in-django/" target="_blank">Concurrent-Write Safety in Django</a>.  It’s not required reading though as I’ll be re-introducing all the same concepts below.</p><h2 id="money-basics-floating-point-doesn’t-cut-it" style=""><a class="anchor hidden-xs" href="#money-basics-floating-point-doesn’t-cut-it" title="money-basics-floating-point-doesn’t-cut-it"><span class="octicon octicon-link"></span></a>Money Basics: floating point doesn’t cut it</h2><p>Before we get into SQL transactions and atomicity, we need to think about the basics: what type should we use to store dollar amounts?</p><p>Floats only store an approximation of decimal values.  If you don’t store them as perfectly as Decimals, any operations on them can introduce accumulating floating-point error.</p><div class="alert alert-danger">
+    <pre><code class="python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>
+    <span class="hljs-number">0.30000000000000004</span>
+    </code></pre>
+    <p>Floating-point math introduces error that can accumulate.</p>
+    </div><p>The answer is to either use <code>Decimal</code>, or a library like <code>money</code> or <code>currencies</code>.  These all store money internally using perfect precision, either as a string or as an <code>int</code> with an exponent to prevent floating point precision loss.</p><div class="alert alert-success">
+    <pre><code class="python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> decimal <span class="hljs-keyword">import</span> Decimal
+    <span class="hljs-meta">&gt;&gt;&gt; </span>Decimal(<span class="hljs-string">'0.1'</span>) + Decimal(<span class="hljs-string">'0.2'</span>)
+    Decimal(<span class="hljs-string">'0.3'</span>)
+    </code></pre>
+    <p>Much better.</p>
+    </div><p>For maximum confusion, I’m going to use float literals in the examples below, but in a real app you should always use <code>Decimal('0.00')</code> or one of the currency libraries.</p><h3 id="beware-of-math" style=""><a class="anchor hidden-xs" href="#beware-of-math" title="beware-of-math"><span class="octicon octicon-link"></span></a>Beware of math</h3><p>Any time you’re doing multiplication or division on dollar amounts, make sure not to penny-shave by accident.  Penny-shaving aka <a href="https://en.wikipedia.org/wiki/Salami_slicing" target="_blank">salami slicing</a> happens when math operations are rounded down to the nearest cent, leaving to an accumulation of fractional-cents that go unaccounted for in the system.</p><div class="alert alert-danger">
+    <pre><code class="python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>payout = Math.round(<span class="hljs-number">100000</span> + <span class="hljs-number">100000</span>/<span class="hljs-number">7</span>, <span class="hljs-number">2</span>)
+    </code></pre>
+    <p>Do this 10 million times and suddenly you’ve lost track of 0.0043 * 10m = $42,857.</p>
+    </div><p>If you want to know what happens to salami slicers, just check out:</p><ul>
+    <li>Superman III</li>
+    <li>Hackers</li>
+    <li>Office Space</li>
+    <li><a href="http://www.alphr.com/news/internet/201252/hacker-takes-50-000-a-few-cents-at-a-time" target="_blank">http://www.alphr.com/news/internet/201252/hacker-takes-50-000-a-few-cents-at-a-time</a></li>
+    </ul><center>
+    <img src="https://i.imgur.com/IARMdBj.jpg" height="300px">
+    </center><h2 id="database-basics-isolation-levels" style=""><a class="anchor hidden-xs" href="#database-basics-isolation-levels" title="database-basics-isolation-levels"><span class="octicon octicon-link"></span></a>Database Basics: Isolation levels</h2><p><img src="https://i.imgur.com/ZvAV3W7.png" alt=""></p><p>Because impelmenting databases to be fast <strong>and</strong> correct is <em>hard</em>, designers let users chose what level of safety vs speed they want.  The <a href="https://en.wikipedia.org/wiki/Isolation_(database_systems)" target="_blank">ANSI Isolation Levels</a> supported by SQL databases go from “Read Uncommited” (the lowest) to “Serializable” (the highest).  The highest level “Serializable”, means you’ll never read stale data in a transaction. You’ll see a snapshot of the world at the moment your transaction started, even if other transactions are modifying the same rows concurrenly.  The lowest level is the opposite, allowing partially complete, uncommited transactions to contaminate others, causing what’s known as “dirty reads”.</p><center>
+    <p><img src="https://i.imgur.com/bNoP65F.png" alt=""></p>
+    </center><p>If you’re handling money using only atomic transactions &amp; writes with no locking, you can only safely use a database that supports “Serializable” writes &amp; reads, otherwise you don’t have a 100% guarantee that you’re not reading or writing stale data.</p><pre><code class="python hljs"><span class="hljs-keyword">import</span> psycopg2.extensions
+
+    DATABASES = {
+        <span class="hljs-comment"># ...</span>
+        <span class="hljs-string">'OPTIONS'</span>: {
+            <span class="hljs-string">'isolation_level'</span>: psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
+        },
+    }
+    </code></pre><p><a href="https://docs.djangoproject.com/en/1.8/ref/databases/#isolation-level" target="_blank">https://docs.djangoproject.com/en/1.8/ref/databases/#isolation-level</a></p><p>Take a look at the <a href="https://jepsen.io/analyses" target="_blank">Jepsen tests</a> to learn more about the isolation guarantees provided by different traditional and distributed SQL databases.</p><h2 id="avoid-concurrency-if-you-can" style=""><a class="anchor hidden-xs" href="#avoid-concurrency-if-you-can" title="avoid-concurrency-if-you-can"><span class="octicon octicon-link"></span></a>Avoid concurrency if you can</h2><p>An excellent article by Tyler Neely <a href="https://medium.com/@tylerneely/fear-and-loathing-in-lock-free-programming-7158b1cdd50c" target="_blank">Fear and Loathing in Lock-Free Programming</a> describes various approaches to dealing with concurrency and distributed systems, but the general gist is: <strong>avoid at all costs</strong>.</p><div class="alert alert-danger">
+    <p>Failure if two threads execute withdrawals at once:</p>
+    <pre><code class="python hljs"><span class="hljs-keyword">if</span> (user.balance == <span class="hljs-number">100</span>) {
+        user.balance -= <span class="hljs-number">100</span>  <span class="hljs-comment"># 2nd thread can .save() a 100 withdrawal before us</span>
+        user.save()          <span class="hljs-comment"># balance is now 0 but should be -100</span>
+    }
+    </code></pre>
+    <p>aka “Time of check to time of use”-bug (<a href="https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use" target="_blank">TOCTTOU</a>).</p>
+    </div><center>
+    <p><img src="https://i.imgur.com/lt2htbT.png" alt="" width="100%"></p>
+    <p><em>The last write above is stale, as it is based on the outdated assumption that the user still has 100 chips available.</em></p>
+    </center><p>If you can design a system to linearize everything into a single queue instead of processing things in parallel, do it.  There’s never a good reason to torture yourself with the additional complexity of multiple processes &amp; locks if you don’t absolutely need it.  Often you can optimize single core performance for a simple task high enough that you never need to run things on multiple cores, redis is a great example of a high-performance single-threaded datastore.</p><h3 id="designing-a-linearizable-queue-for-transactions" style=""><a class="anchor hidden-xs" href="#designing-a-linearizable-queue-for-transactions" title="designing-a-linearizable-queue-for-transactions"><span class="octicon octicon-link"></span></a>Designing a linearizable queue for transactions</h3><p>In our wallet app, an approach we could take is to queue all transactions into a list of serialized tuples that can be sent across a network:</p><p><code>[(ts, condition, transaction), ...]</code>.</p><p>For example, lets say we have a user whose ID is <code>241</code>, and they buy some chips, and then sit down at a poker table.  We need to deposit the chips into their wallet, and then take them out in order to give them a spot at the table.  We’ll need to make sure they have enough chips to sit at the table, so we use the check <code>balance_gt(user_id, amt)</code> to confirm they have enough chips.</p><pre><code class="python hljs">transactions = [
+        <span class="hljs-comment"># timestamp  condition              action</span>
+        (<span class="hljs-number">1523518620</span>, <span class="hljs-string">"can_deposit(241)"</span>   , <span class="hljs-string">"deposit_usd(241, 50)"</span>),
+        (<span class="hljs-number">1523518634</span>, <span class="hljs-string">"balance_gt(241, 50)"</span>, <span class="hljs-string">"buy_chips(241, 50)"</span>),
+    ]
+    </code></pre><center>
+    <p><img src="https://i.imgur.com/SPszJni.png" alt="" width="100%"></p>
+    <p><em>Stale writes can’t happen if only one process is reading &amp; writing at a time.</em></p>
+    </center><p>Assuming each action only modifies one row at a time, you can process the transactions with a simple, single-threaded loop like this:</p><pre><code class="python hljs"><span class="hljs-keyword">while</span> transactions:
+        ts, condition, action = transactions.pop()
+        <span class="hljs-keyword">if</span> eval(condition):
+            eval(action)      <span class="hljs-comment"># make sure to sanitize any user inputted strings</span>
+    </code></pre><p>There are some big caveats with this approach though, namely, you can <strong>only ever have a single process touching the transaction table, and it needs to have a lock on the entire table to prevent anyone else from modifying it</strong>.  If you ever run a second transaction handling loop or modify the table outside of the loop, you’ll run into hellish scenarios where transactions process out of order, or tables are modified between the <code>if condition</code> and <code>do action</code> portion, creating invalid data</p><p>If you think you can get away with storing all your money data in one table, and you don’t mind locking the entire table and limiting it’s use to a single thread, stop reading here, you’re done!</p><blockquote>
+    <p>See <a href="#appendix">appendix 1</a> for a full example of a single-threaded queue processor.</p>
+    </blockquote><p>With only a single process modifying any locked tables, you’ll never run into a scenario where the data you write is stale, or multiple people attempt to modify the same valu.  You can even have multiple servers submitting transactions to your central queue, as long as the timestamps are accurate, things will be processed in the order received and will never execute at the same time.</p><p>Syncronizing time between multiple servers is <em>very hard</em> though, so don’t rely on having strictly ordered transactions unless your servers are synchronized via <a href="http://www.wired.com/wiredenterprise/2012/11/google-spanner-time/" target="_blank">atomic clocks</a>!</p><h2 id="designing-thread-safe-banking-transactions" style=""><a class="anchor hidden-xs" href="#designing-thread-safe-banking-transactions" title="designing-thread-safe-banking-transactions"><span class="octicon octicon-link"></span></a>Designing thread-safe banking transactions</h2><h3 id="single-threaded-code-doesn’t-scale" style=""><a class="anchor hidden-xs" href="#single-threaded-code-doesn’t-scale" title="single-threaded-code-doesn’t-scale"><span class="octicon octicon-link"></span></a>Single-threaded code doesn’t scale</h3><p>There are a few a common scenarios where the above design breaks down, usually because locking the entire table you’re going to be writing isn’t practical, e.g. what if you need to add a row, and update a different row that’s used elsewhere in the system at the same time:</p><pre><code class="python hljs">BalanceTransfer.objects.create(<span class="hljs-keyword">from</span>=Cashier, to=user, amt=amt)
+    PokerPlayer.objects.filter(user_id=user.id, chips=F(<span class="hljs-string">'chips'</span>) + amt)
+    </code></pre><p>Suddenly you’ll not only need to lock the entire <code>BalanceTransfer</code> table, but also the <code>PokerPlayer</code> table, which is unacceptable if you’re running hundreds of games at the same time which need access to those tables.</p><p>To do this properly without incurring the massive performance penalty of whole-table locks, we have to introduce a new concept: <strong>atomic writes &amp; transactions</strong>.</p><p>A SQL transaction is basically a way of saying “perform all these oparations at once, and if any of them fail, roll-back and don’t commit any of them”.  We use an atomic transaction above in order to perform the <code>action</code> and <code>delete</code> together.  If the <code>action</code> writes fail for any reason, we don’t want to <code>delete</code> the <code>QueuedTransaction</code> because then we’d lose the customers money!  <code>atomic</code> insures that if any exception is thrown, invalid partial changes are never commited.</p><h3 id="atomic-check-on-write-operations" style=""><a class="anchor hidden-xs" href="#atomic-check-on-write-operations" title="atomic-check-on-write-operations"><span class="octicon octicon-link"></span></a>Atomic check-on-write operations</h3><p>Atomic transactions aren’t magic though, we still need to avoid <a href="https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use" target="_blank">TOCTTOU</a> bugs, which means that the <code>condition</code> and <code>action</code> actually need to be a single statement.  For example, to subtract 50 chips from a user’s balance, we might write:</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+    <span data-linenumber="2"></span>
+    <span data-linenumber="3"></span>
+    <span data-linenumber="4"></span>
+    <span data-linenumber="5"></span>
+    <span data-linenumber="6"></span></div><div class="code">user = User.objects.get(id=<span class="hljs-number">241</span>)
+    <span class="hljs-keyword">if</span> user.balance == <span class="hljs-number">100</span>:
+        user.balance = <span class="hljs-number">50</span>
+        <span class="hljs-comment"># meanwhile, in another thread, user adds 100 new chips</span>
+        user.save()
+        <span class="hljs-comment"># now user's balance is 50 instead of 150!!</span>
+    </div></div></code></pre><p>Suddenly we’ve made them lose 100 chips when we only wanted to subtract 50! Because the balance can change between line 3 &amp; 5, we will write our stale <code>user.balance</code> value instead of the correct fresh value from the db. To fix this we’ll actually need to actually perform the entire operation in a single SQL statement:</p><pre><code class="python hljs">updated = User.objects.filter(id=<span class="hljs-number">241</span>, balance=<span class="hljs-number">100</span>).update(balance=<span class="hljs-number">50</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> updated:
+        <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">'Someone else modified balance!'</span>)
+    </code></pre><p>Now we’re only updating the user object if the balance is exactly what we expect it to be! If it’s different from what we expected, the <code>.filter()</code> will return no rows, and the update will fail.  The great part is that this is a single, atomic SQL statement, there’s no way for the balance to change between the check and the update.</p><p>This isn’t always easy though, especially for operations involving multiple rows, or modifying values that depend on one or more existing values in the row.</p><h3 id="locking-rows-when-atomic-check-on-writes-aren’t-possible" style=""><a class="anchor hidden-xs" href="#locking-rows-when-atomic-check-on-writes-aren’t-possible" title="locking-rows-when-atomic-check-on-writes-aren’t-possible"><span class="octicon octicon-link"></span></a>Locking rows when atomic check-on-writes aren’t possible</h3><p>For more complex operations, Django provides the <code>.select_for_update()</code> queryset method, which locks the row in question, blocking other threads from modifying it before we save our changes.</p><pre><code class="python hljs"><span class="hljs-keyword">with</span> transaction.atomic():
+        user = User.objects.select_for_update().filter(id=<span class="hljs-number">241</span>)
+        <span class="hljs-keyword">if</span> user.balance &gt;= <span class="hljs-number">50</span>:
+            user.balance -= <span class="hljs-number">50</span>
+            user.save()
+    </code></pre><p>Now any other processes will block until the lock is released, instead of modifying <code>User</code> at the same time as us.</p><h2 id="store-transaction-history-just-the-total-or-both" style=""><a class="anchor hidden-xs" href="#store-transaction-history-just-the-total-or-both" title="store-transaction-history-just-the-total-or-both"><span class="octicon octicon-link"></span></a>Store transaction history, just the total, or both?</h2><p>When designing a banking system, you might start out by just storing a log of their money-in &amp; money-out Transfers, without keeping a separate field to store the total on the User.  It’s clean because the total balance can be derived by adding the transactions up, and there’s no duplication of data, what’s not to like?</p><pre><code class="python hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Transfer</span><span class="hljs-params">(models.Model)</span>:</span>
+        src = models.ForeignKey(User)
+        dst = models.ForeignKey(User)
+        amt = models.DecimalField(max_digits=<span class="hljs-number">20</span>, decimal_places=<span class="hljs-number">2</span>)
+        timestamp = models.DateTimeField(auto_now=<span class="hljs-keyword">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">user_balance</span><span class="hljs-params">(user)</span>:</span>
+        <span class="hljs-string">"""adds up all credits &amp; debits to see user's final balance"""</span>
+        credits = Transfer.objects.filter(dst=user).aggregate(Sum(<span class="hljs-string">'amt'</span>))[<span class="hljs-string">'amt__sum'</span>] <span class="hljs-keyword">or</span> <span class="hljs-number">0</span>
+        debits = Transfer.objects.filter(src=user).aggregate(Sum(<span class="hljs-string">'amt'</span>))[<span class="hljs-string">'amt__sum'</span>] <span class="hljs-keyword">or</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">return</span> credits - debits
+    </code></pre><center>
+    <img src="https://i.imgur.com/J645nHa.png" height="200px">
+    <p><em>Transfers are append-only, user balance is derived by adding up all the history rows.</em></p>
+    </center><p>As discussed in this great talk <a href="https://www.confluent.io/blog/turning-the-database-inside-out-with-apache-samza/" target="_blank">Turning the Database Inside Out</a>, viewing the data as an append-only immutable log of Transfers makes maintaining integrity much simpler.  If tables like Transfers are append-only, writes simply need to be strictly ordered by timestamp, which reduces the concurrency problem to a time-synchronization (something Google solved by using atomic clocks for <a href="https://en.wikipedia.org/wiki/Spanner_(database)" target="_blank">Spanner</a>).</p><h3 id="immutable-append-only-tables-are-hard-to-lock-in-sql-though" style=""><a class="anchor hidden-xs" href="#immutable-append-only-tables-are-hard-to-lock-in-sql-though" title="immutable-append-only-tables-are-hard-to-lock-in-sql-though"><span class="octicon octicon-link"></span></a>Immutable, append-only tables are hard to lock in SQL though</h3><p>The problem is, any process that wants to withdraw from the User’s balance now needs to block <em>all</em> new row writes to the <code>Transfer</code> table to prevent adding simultaneous withdrawals, effectively grinding your banking system to a halt for every transaction.  A good example is if the user only has $50 in their wallet, and you want to remove all $50, you’ll need to prevent any other withdrawal transactions from being added simultanously in order to prevent double-spending more than the $50 available.</p><p>A solution is to store a separate row that keeps track of the total along with the append-only transaction history. A single row-level lock is then all that’s needed to prevent other changes to the user’s balance, any other transactions will need to wait for the lock to release in order to modify balance.</p><pre><code class="python hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserBalance</span><span class="hljs-params">(models.model)</span>:</span>
+        user = models.OneToOneField(User)
+        total = models.DecimalField(max_digits=<span class="hljs-number">20</span>, decimal_places=<span class="hljs-number">2</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">buy_chips</span><span class="hljs-params">(user, amt)</span>:</span>
+        <span class="hljs-keyword">with</span> transaction.atomic():
+            <span class="hljs-comment"># Lock user row, preventing anyone else from changing total</span>
+            UserBalance.objects.select_for_update().filter(id=user.id)
+            
+            <span class="hljs-comment"># Update the user's total and add a Transfer row atomically</span>
+            UserBalance.objects.filter(id=user.id).update(total=F(<span class="hljs-string">'total'</span>) + amt)
+            Transfer.objects.create(src=Cashier, dst=user, amt=amt)
+            
+        <span class="hljs-comment"># Exiting context handler commits transaction and releases User row lock</span>
+    </code></pre><p>This effectively prevents anyone from modifying the user total, without needing to have an entire table lock on <code>Transfer</code>s.</p><h2 id="multiple-databases" style=""><a class="anchor hidden-xs" href="#multiple-databases" title="multiple-databases"><span class="octicon octicon-link"></span></a>Multiple Databases</h2><p>A useful tactic is to store all financial data in a separate database entirely.  This also allows you to point multiple app servers running different versions of your code &amp; schema at one central banking service.  Depending on your scale, separate databases might even be legally manded to comply with regulations about PII financial data risiding in the same country as its users.</p><p>Luckily, Django kicks ass, and supports nested multi-db transactions with no fuss at all.</p><pre><code class="python hljs"><span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">with</span> transaction.atomic(using=<span class="hljs-string">'default'</span>):
+            <span class="hljs-keyword">with</span> transaction.atomic(using=<span class="hljs-string">'db_one'</span>):
+                <span class="hljs-keyword">with</span> transaction.atomic(using=<span class="hljs-string">'db_two'</span>):
+                    MyModel_one(...).save(using=<span class="hljs-string">'default'</span>)
+                    MyModel_two(...).save(using=<span class="hljs-string">'db_one'</span>)
+                    MyModel_three(...).save(using=<span class="hljs-string">'db_two'</span>) <span class="hljs-comment"># raises exception</span>
+    <span class="hljs-keyword">except</span> IntegrityError:
+        ...  <span class="hljs-comment"># all 3 dbs roll back and dont commit the changes</span>
+    </code></pre><p><a href="https://stackoverflow.com/questions/31928143/django-transaction-using-multi-db" target="_blank">https://stackoverflow.com/questions/31928143/django-transaction-using-multi-db</a></p><h2 id="coding-techniques" style=""><a class="anchor hidden-xs" href="#coding-techniques" title="coding-techniques"><span class="octicon octicon-link"></span></a>Coding techniques</h2><p>We found that a good design habit was to keep all the sensitive write transactions not mixed into view-layer logic and read transactions.</p><p>This makes them easy to audit and change as a group, you’ll thank yourself next time you need to refactor them or fix a bug in an emergency.</p><p>E.g. <code>app_name/transactions.py</code>  All financial db writes go here.</p><p><code>from app_name.transactions import buy_chips</code></p><p>Have your transactions peer reviewed by a distributed systems expert, and stress test your systems concurrency guarantees using tests like the Jepsen suite.</p><h2 id="summary" style=""><a class="anchor hidden-xs" href="#summary" title="summary"><span class="octicon octicon-link"></span></a>Summary</h2><p>A single-threaded app can get away with processing transactions using a single odered queue.  As long as the queue is strictly ordered by time, and there’s a whole-table lock to prevent modification by other threads, everything should work.  However, most real-world apps run on multiple web servers, so writing thread-safe code is absolutely essential. It’s very difficult to rewrite non thread-safe code to be thread-safe later, so good initial design is important.</p><p>In most real-world setups, you’ll need to modify multiple tables at once, and obtaining a whole-table lock isn’t practical, so it is wise to use atomic writes and transactions to perform multiple writes together, and roll back all of them if any write fails.</p><div class="alert alert-danger">
+    <p><strong>Don’t use floats.</strong><br>
+    <strong>Don’t round math operations without accounting for the remainder.</strong><br>
+    <strong>Don’t execute non thread-safe writes in a parallel environment.</strong></p>
+    </div><div class="alert alert-success">
+    <p><strong>Back up your data remotely, and have multiple read-slaves.</strong></p>
+    <pre><code class="bash hljs">pg_dump db_name &gt; /tmp/db_name.sql
+    zip -r /tmp/db_name.sql.zip /tmp/db_name.sql
+    rsync -avz /tmp/db_name.sql.zip backups:/backups/db_name_$(date +%s).sql.zip
+    </code></pre>
+    <p><strong>Set your database isolation level to “Serializable”</strong>.</p>
+    <pre><code class="python hljs">DATABASES = {..., <span class="hljs-string">'OPTIONS'</span>: {<span class="hljs-string">'isolation_level'</span>:
+        psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
+    }}
+    </code></pre>
+    <p><strong>Use <code>Decimal</code> instead of <code>float</code>:</strong></p>
+    <pre><code class="python hljs">Decimal(<span class="hljs-string">'0.35'</span>) + Decimal(<span class="hljs-string">'100.15'</span>)
+    </code></pre>
+    <p><strong>Use atomic check-on-write:</strong></p>
+    <pre><code class="python hljs">User.objects.filter(id=user.id, balance__gt=50)\
+                .update(balance=F('balance) - 50)`
+    </code></pre>
+    <p><strong>Lock dependent dependent rows during writes:</strong></p>
+    <pre><code class="python hljs"><span class="hljs-keyword">with</span> transaction.atomic():
+        players = Player.objects.filter(user=user).select_for_update()
+        user.balance = get_players_balance(players)
+        user.save()
+    </code></pre>
+    <p><strong>Span transactions across multiple databases:</strong></p>
+    <pre><code class="python hljs"><span class="hljs-keyword">with</span> transaction.atomic(using=<span class="hljs-string">'default'</span>):
+        <span class="hljs-keyword">with</span> transaction.atomic(using=<span class="hljs-string">'db_two'</span>):
+             MyModel_one(...).save(using=<span class="hljs-string">'default'</span>)
+             MyModel_two(...).save(using=<span class="hljs-string">'db_two'</span>)
+    </code></pre>
+    </div><h2 id="defense-in-depth" style=""><a class="anchor hidden-xs" href="#defense-in-depth" title="defense-in-depth"><span class="octicon octicon-link"></span></a>Defense in Depth</h2><p>Application logic and database integrity is only one piece of the puzzle, to approach high-scale enterprise-grade integrity all the way down the stack, you’ll have to ensure you have a check-summed filesystem, and ECC RAM.  Even those don’t provide 100% guarantee that things don’t go wrong, but security is defense in layers.  From <a href="https://twitter.com/whitequark/status/980526967630921728" target="_blank">random bit flips</a> to poorly concurrent threads, there are many dangers to protect against, and you’ll have to think about exactly what risk tradeoffs you’re willing to take in your design.</p><p><img src="https://i.imgur.com/VOgFFlf.jpg" alt="" title="" style="width:100%"></p><h2 id="further-reading" style=""><a class="anchor hidden-xs" href="#further-reading" title="further-reading"><span class="octicon octicon-link"></span></a>Further Reading</h2><ul>
+    <li><a href="https://en.wikipedia.org/wiki/ACID" target="_blank">ACID Guarantees</a> wiki page</li>
+    <li><a href="https://en.wikipedia.org/wiki/Isolation_(database_systems)" target="_blank">Transaction Isolation</a> wiki page</li>
+    <li><a href="https://docs.djangoproject.com/en/1.8/ref/databases/#isolation-level" target="_blank">Django docs on isolation levels</a></li>
+    <li><a href="http://thesecretlivesofdata.com/raft/" target="_blank">Raft</a> consensus algorithm</li>
+    <li><a href="https://www.cockroachlabs.com/" target="_blank">CockroachDB</a>, <a href="https://github.com/pingcap/tidb" target="_blank">TiDB</a>, and <a href="https://en.wikipedia.org/wiki/Spanner_(database)" target="_blank">Spanner</a> distributed SQL databases</li>
+    <li><a href="https://jepsen.io/analyses" target="_blank">Jepsen Integrity Analyses</a> of varoius databases</li>
+    <li><a href="https://medium.com/@tylerneely/fear-and-loathing-in-lock-free-programming-7158b1cdd50c" target="_blank">Fear and loathing in lock-free programming</a> by Tyler Neely</li>
+    <li><a href="https://www.confluent.io/blog/turning-the-database-inside-out-with-apache-samza/" target="_blank">Turning the database inside-out</a> by Martin Kleppmann</li>
+    <li><a href="http://open-zfs.org/wiki/Main_Page" target="_blank">ZFS</a> and <a href="https://en.wikipedia.org/wiki/Btrfs" target="_blank">BTRFS</a> checksummed filesystems</li>
+    <li><a href="https://en.wikipedia.org/wiki/ECC_memory" target="_blank">Error-Correcting Code RAM</a></li>
+    </ul><h2 id="check-out-oddslingers" style=""><a class="anchor hidden-xs" href="#check-out-oddslingers" title="check-out-oddslingers"><span class="octicon octicon-link"></span></a>Check out OddSlingers</h2><p>If you made it this far, you deserve to see it all in action!</p><center>
+    <p><img src="https://i.imgur.com/RmqA2g5.jpg" alt="" title="" style="width:100%"></p>
+    <p><img src="https://i.imgur.com/eC8alr1.png" height="50px"> &nbsp; <a href="https://oddslingers.com/accounts/login/?utm_source=blog" class="btn btn-success btn-lg" target="_blank">Play Poker on OddSlingers</a> &nbsp; <img src="https://i.imgur.com/eC8alr1.png" height="50px"></p>
+    <p>If you sign up using this link, you’ll get 5000 free chips to play poker with on OddSlingers.</p>
+    </center><h2 id="appendix" style=""><a class="anchor hidden-xs" href="#appendix" title="appendix"><span class="octicon octicon-link"></span></a>Appendix</h2><ol>
+    <li><strong>Single-threaded transaction queue processor with entire-table locking:</strong></li>
+    </ol><pre><code class="python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put_transaction</span><span class="hljs-params">(condition, action)</span>:</span>
+        Txn.objects.create(condition=condition, action=action)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pop_transaction</span><span class="hljs-params">()</span>:</span>
+        txns = Txn.objects.filter(<span class="hljs-string">'pending'</span>).order_by(<span class="hljs-string">'created'</span>)
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> txns.exists():
+            sleep(<span class="hljs-number">0.1</span>)
+        <span class="hljs-keyword">return</span> txns.first()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">banking_runloop</span><span class="hljs-params">()</span>:</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            txn = pop_transaction()
+            <span class="hljs-keyword">with</span> connection.cursor() <span class="hljs-keyword">as</span> cursor:
+                cursor.execute(<span class="hljs-string">"LOCK TABLES %s READ"</span>, [...])  <span class="hljs-comment"># tables to lock</span>
+                <span class="hljs-keyword">try</span>:
+                    <span class="hljs-keyword">with</span> transaction.atomic(using=<span class="hljs-string">"default"</span>):
+                        <span class="hljs-keyword">if</span> eval(txn.condition):
+                            eval(txn.action)
+                            Txn.objects.get(id=txn.id).update(status=<span class="hljs-string">'succeeded'</span>)
+                        <span class="hljs-keyword">else</span>:
+                            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">'Condition was false'</span>)   
+                <span class="hljs-keyword">except</span> Exception:
+                    Txn.objects.get(id=txn.id).update(status=<span class="hljs-string">'failed'</span>)
+                <span class="hljs-keyword">finally</span>:
+                    cursor.execute(<span class="hljs-string">"UNLOCK TABLES;"</span>)
+    </code></pre></div>
+
+
+    <div class="post-footer">
+        <hr/>
+        <div class="infobox">
+            </br><br/>
+            <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-dark btn-success" target="_blank" rel="noopener">
+                <i class="fa fa-twitter"></i> Tweet
+            </a>
+        </div>
+        <div class="authorbox">
+            <div>
+                <br/>
+                Max McCrea<br/>
+                <h4>
+                    OddSlingers CTO<br/>
+                    <a href="https://twitter.com/theSquashSH" target="_blank" rel="noopener">
+                        @theSquashSH
+                    </a>
+                </h4>
+                <h5>Published on <a href="#permalink"></a></h5>
+            </div>
+            <img src="../static/nick.jpg" width="100px"/>
+        </div>
+        <div class="likebox">
+            <a href="#like" name="like">
+                <br/>
+                <i class="fa fa-heart-o"></i><i class="fa fa-heart"></i><br/>
+                <small>Like Post</small>
+            </a>
+        </div>
+        <br/>
+        <canvas class="animated-color-grid" height="40"></canvas>
+    </div>
+
+        </article>
+        
+
+        
+        <footer>
+            
+    
+
+            <div class="container text-center text-darkgrey">
+                
+                    <br/><br/>
+                    <div class="social-links">
+    Follow us on:<br/><br/>
+    
+        &nbsp;
+        <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
+        &nbsp;
+    
+        &nbsp;
+        <a href="https://github.com/Monadical-SAS" title="OddSlingers Github" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
+        &nbsp;
+    
+        &nbsp;
+        <a href="https://t.me/OddSlingers" title="OddSlingers Telegram" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a>
+        &nbsp;
+    
+        &nbsp;
+        <a href="https://discord.gg/USPweBy" title="OddSlingers Discord" target="_blank" rel="noopener"><i class="fa fa-gamepad"></i></a>
+        &nbsp;
+    
+</div>
+                
+
+                
+                    <br/>
+                    <small>OddSlingers © 2018</small>
+                    <br/>
+                
+
+            </div>
+            
+            
+        </footer>
+        
+
+        <script src="static/squares.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+        
+        
+    </body>
+</html>
