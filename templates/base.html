@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{{SITE_TITLE}} | {% block title %}Home{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One" >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="/static/bootstrap4-pleasant.min.css">
+        <link rel="stylesheet" href="/static/main.css">
+
+        {% block head %}
+        {% endblock %}
+    </head>
+    
+    <body>
+        {% block header %}
+        <header>
+            {% block headerbefore %}
+            {% endblock %}
+            <nav class="navbar navbar-expand-sm navbar-light" data-toggle="affix">
+                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse text-center">
+                        <ul class="navbar-nav navbar-left">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/team">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/team">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/code">Code</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/articles">Articles</a>
+                            </li>
+                        </ul>
+                        
+                        <h1 class="nav-item main-brand-link">
+                            <a href="/">{{SITE_TITLE}}</a>
+                        </h1>
+
+                        <ul class="navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <a class="nav-link" href="whitepaper.html">Whitepaper</a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 10px">
+                                <a class="beta-btn nav-link btn btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
+                                    ♠<span class="diamond">♦</span>
+                                    Poker <span class="neon">BETA</span>&nbsp;
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            {% block headerafter %}
+            {% endblock %}
+            <!--<canvas class="animated-color-grid" height="100"></canvas>-->
+        </header>
+        {% endblock %}
+
+        {% block outer %}
+        <article class="container py-5">
+            {% block article %}
+            {% endblock %}
+        </article>
+        {% endblock %}
+
+        {% block footer %}
+        <footer>
+            <div class="container text-center text-darkgrey">
+                {% block footerbefore %}
+                    <a class="beta-btn nav-link btn btn-lg btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
+                        <i>♠</i> <em>♦</em> &nbsp;
+                        Play now with <span class="neon">5,000</span> free chips &nbsp;
+                        <i>♣</i> <em>♥</em>
+                    </a>
+                    
+                    <br/><br/><br/><br/><br/>
+                {% endblock %}
+
+                {% block footersocial %}
+                <br/><br/>
+                <div class="social-links">
+                    Follow us on:<br/><br/>
+                    <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a> &nbsp; &nbsp;
+                    <a href="https://facebook.com/OddSlingers" title="OddSlingers Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a> &nbsp; &nbsp;
+                    <a href="https://reddit.com/r/OddSlingers" title="OddSlingers Reddit">
+                        <i class="fa fa-reddit"></i>
+                    </a> &nbsp; &nbsp;
+                    <a href="https://t.me/OddSlingers" title="OddSlingers Telegram">
+                        <i class="fa fa-telegram"></i>
+                    </a> &nbsp; &nbsp;
+                    <a href="https://discord.gg/USPweBy" title="OddSlingers Discord">
+                        <i class="fa fa-gamepad"></i>
+                    </a>
+                </div>
+                {% endblock %}
+
+                {% block footercopyright %}
+                <br/>
+                <small>OddSlingers © 2018</small>
+                <br/>
+                {% endblock %}
+
+                {% block footerafter %}
+                {% endblock %}
+            </div>
+        </footer>
+        {% endblock %}
+
+        <script src="/static/squares.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
+        {% block bodyafter %}
+        {% endblock %}
+    </body>
+</html>
