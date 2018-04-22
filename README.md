@@ -39,14 +39,14 @@ Static files are in: `templates/`
 ### Run the Server
 
 ```bash
-./app.py
+./server
 ```
 
-### Get a list of the build urls
+### Get a list of the page & post urls without running the server
 
 ```bash
-./app.py --pages
-./app.py --posts
+./server --pages
+./server --posts
 ```
 
 ### Build the Static Site
@@ -54,7 +54,7 @@ Static files are in: `templates/`
 ```bash
 ./build
 ```
-Static HTMML output will be produced in `output/`, and can be rsyned to a server using:
+Static HTMML output will be produced in `output/`, and can be rsyned to a server using build script or manually with:
 
 `rsync -r output/ labs.oddslingers.com:/opt/labs.oddslingers.com/output`
 
