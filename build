@@ -7,8 +7,6 @@ green=${txtbld}$(tput setaf 2)
 white=${txtbld}$(tput setaf 7)
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 
-urls=
-
 echo "$blue[+] Starting Flask server...$normal"
 ./server > /dev/null &
 sleep 1.5
