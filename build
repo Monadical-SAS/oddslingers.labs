@@ -10,15 +10,15 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 urls=
 
 echo "$blue[+] Starting Flask server...$normal"
-./app.py > /dev/null &
+./server > /dev/null &
 sleep 1.5
 
 # Recreate output folder
 rm -Rf output
 mkdir -p output/posts
 cp -r static output/static
-./app.py --pages > output/pages.txt
-./app.py --posts > output/posts.txt
+./server --pages > output/pages.txt
+./server --posts > output/posts.txt
 
 echo "$blue[+] Building pages HTML...$normal"
 (cd output; wget -q $(<pages.txt))
