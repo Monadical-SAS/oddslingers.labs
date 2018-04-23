@@ -3,10 +3,10 @@
 Simple static site powering OddSlingers Labs.
 
 Static HTML is produced using a short custom website generator powered by Flask, Jinja2, & wget.
-
-All metadata is stored in `content.json`.
-Templates are in: `templates/`
-Static files are in: `templates/`
+  
+All metadata is stored in `content.json`.  
+Templates are in: `templates/`  
+Static files are in: `static/`  
 
 ## Common Tasks
 
@@ -40,6 +40,8 @@ Static files are in: `templates/`
 
 ```bash
 ./server
+# or with auto-reloading
+env FLASK_DEBUG=True ./server
 ```
 
 ### Get a list of the page & post urls without running the server

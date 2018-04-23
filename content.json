@@ -12,7 +12,7 @@
             "template": "team.html"
         },
         "code": {
-            "title": "Projects",
+            "title": "Code",
             "url": "/code.html",
             "template": "code.html"
         },
@@ -35,7 +35,7 @@
     "POSTS": {
         "trustless": {
             "date": "2018-04-20",
-            "title": "The Myth of Trustlesness",
+            "title": "The Myth of Trustlessness",
             "url": "/posts/Trustless-is-A-Myth.html",
             "tags": ["Game Theory", "Cryptocurrencies"],
             "image": "/static/cryptocurrency.png",
