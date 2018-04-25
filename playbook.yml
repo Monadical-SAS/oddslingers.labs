@@ -1,7 +1,8 @@
 ---
+- name: Install nginx
 
-tasks:
-  - name: ensure nginx is at the latest version
-    apt:
-      name: nginx
-      state: latest
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt:
+        name: nginx
+        state: latest
