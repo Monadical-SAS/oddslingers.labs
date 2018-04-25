@@ -1,8 +1,6 @@
 ---
-- hosts: labs.oddslingers.com
-  remote_user: root
 
-  tasks:
+tasks:
   - name: ensure nginx is at the latest version
     apt:
       name: nginx
