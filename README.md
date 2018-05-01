@@ -8,6 +8,13 @@ All metadata is stored in `content.json`.
 Templates are in: `templates/`  
 Static files are in: `static/`  
 
+## Install
+
+```bash
+brew install wget python3  # only needed on mac
+pip3 install flask
+```
+
 ## Common Tasks
 
 ### Adding a new Post
@@ -33,6 +40,12 @@ Static files are in: `static/`
 2. edit any relevant templates
 3. rebuild site
 4. new page should appear in navbar
+
+### Editing header/footer/other code
+
+1. edit base.html and any other relevant templates
+2. rebuild site
+3. new changes should appear on site
 
 ## Command Line Interface
 
