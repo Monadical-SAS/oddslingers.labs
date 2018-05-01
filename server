@@ -8,22 +8,27 @@ from flask import Flask, render_template
 
 
 ### Config
-
 app = Flask(__name__)
 CONFIG_FILE = 'content.json'
 HOST = 'http://127.0.0.1:5000'
 
 def load_config(fname=CONFIG_FILE):
+    """read the content.json file and load it as a dictionary"""
     with open(fname, 'r') as f:
-        lines = (l for l in f if not l.strip().startswith('//'))
+        lines = (l for l in f if not l.strip().startswith('//'))  # dont include comment lines with // 
         return json.loads('\n'.join(lines))
 
 CONFIG = load_config(CONFIG_FILE)
 
-PAGES = {page['url']: page for page in  list(CONFIG['PAGES'].values())}
-POSTS = {post['url']: post for post in  list(CONFIG['POSTS'].values())}
+PAGES = {page['url']: page for page in  list(CONFIG['PAGES'].values())}  # {url: {page_data}}
+POSTS = {post['url']: post for post in  list(CONFIG['POSTS'].values())}  # {url: {post_data}}
+
 
 ### Routes
+
+# Similar to wordpress, pages and posts are separate.  Every page has its own template
+# in templates/page.html, but all posts use the same template + an iframe URL for the
+# post content
 
 @app.route('/<path>')
 def render_page(path):
@@ -39,8 +44,11 @@ def render_post(path):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == '--pages':
+        # just print list of page urls
         print('\n'.join(HOST + url for url in PAGES.keys()))
     elif len(sys.argv) > 1 and sys.argv[1] == '--posts':
+        # just print list of post urls
         print('\n'.join(HOST + url for url in POSTS.keys()))
     else:
+        # run the flask http server
         app.run()
