@@ -33,24 +33,6 @@
         }
     },
     "POSTS": {
-        "trustless": {
-            "date": "2018-04-20",
-            "title": "The Myth of Trustlessness",
-            "url": "/posts/Trustless-is-A-Myth.html",
-            "tags": ["Game Theory", "Cryptocurrencies"],
-            "image": "/static/cryptocurrency.png",
-            "length": "10 min read",
-            "height": "70vh",
-            "iframe": "https://docs.oddslingers.com/s/SyBidc_hG",
-            "description": "The word “trustless” implies that trust has been removed from the system altogether. But in reality, systems like Bitcoin require plenty of trust, it's just less obvious.",
-            "author": {
-                "name": "Max McCrea",
-                "title": "OddSlingers CEO",
-                "handle": "@cowpig",
-                "url": "https://twitter.com/ACowpig",
-                "image": "/static/max.jpg"
-            }
-        },
         "atomic": {
             "date": "2018-04-20",
             "title": "How I learned to stop worrying and love atomic()",
@@ -68,12 +50,65 @@
                 "image": "/static/nick.jpg"
             }
         },
+        "trustless": {
+            "date": "2018-01-29",
+            "title": "The Myth of Trustlessness",
+            "url": "/posts/Trustless-is-A-Myth.html",
+            "tags": ["Game Theory", "Cryptocurrencies"],
+            "image": "/static/cryptocurrency.png",
+            "length": "10 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/SyBidc_hG",
+            "description": "The word “trustless” implies that trust has been removed from the system altogether. But in reality, systems like Bitcoin require plenty of trust, it's just less obvious.",
+            "author": {
+                "name": "Max McCrea",
+                "title": "OddSlingers CEO",
+                "handle": "@cowpig",
+                "url": "https://twitter.com/ACowpig",
+                "image": "/static/max.jpg"
+            }
+        },
+        "redux": {
+            "date": "2017-07-27",
+            "title": "Using the Redux Store Like a Database",
+            "url": "/posts/Using-Redux-As-A-Database.html",
+            "tags": ["Redux", "Index", "Memoization", "SQL"],
+            "length": "7 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/Skcz_hUhM",
+            "description": "Storing data in a normalized form allows us to calculate fast indexes for lookups.",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
+            }
+        },
+        "segwit": {
+            "date": "2017-06-24",
+            "title": "An Explanation of Segwit and the Lighning Network",
+            "url": "/posts/Segwit-and-the-Lightning-Network.html",
+            "tags": ["Bitcoin", "Cryptocurrencies"],
+            "image": "/static/cryptocurrency.png",
+            "length": "11 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/Bk3OSBvRf",
+            "description": "Segwit increases total number of bytes for each transaction (very slightly), but changes the way that block size is calculated so that the signatures don’t count as much against the limit.",
+            "author": {
+                "name": "Max McCrea",
+                "title": "OddSlingers CEO",
+                "handle": "@cowpig",
+                "url": "https://twitter.com/ACowpig",
+                "image": "/static/max.jpg"
+            }
+        },
         "reconciling": {
-            "date": "2018-04-20",
+            "date": "2017-03-02",
             "title": "Reconciling Django Templates With React Components",
             "url": "/posts/Reconciling-Templates-With-Components.html",
             "tags": ["Django", "React", "Templates", "SPA"],
-            "length": "6 min read",
+            "length": "9 min read",
             "height": "70vh",
             "iframe": "https://docs.oddslingers.com/s/Hks_9j_hz",
             "description": "The fundamental issue is that Django wants you to build up your pages using template fragments, and React wants to pull you into its world with JS components as the main building blocks.",
@@ -85,21 +120,56 @@
                 "image": "/static/nick.jpg"
             }
         },
-        "redux": {
-            "date": "2018-04-20",
-            "title": "Using the Redux Store as a Database",
-            "url": "/posts/Using-Redux-As-A-Database.html",
-            "tags": ["Redux", "Index", "Memoization", "SQL"],
-            "length": "4 min read",
+        "concurrent": {
+            "date": "2016-08-03",
+            "title": "Two Approaches to Concurrent Write-Safety in Django",
+            "url": "/posts/Django-Concurrent-Write-Safety.html",
+            "tags": ["Django", "ORM", "Database Integrity", "Distributed Systems"],
+            "length": "5 min read",
             "height": "70vh",
-            "iframe": "https://docs.oddslingers.com/s/Skcz_hUhM",
-            "description": "Storing data in a normalized form allows us to calculate fast indexes for lookups.",
+            "iframe": "https://docs.oddslingers.com/s/SJXzOrvAf",
+            "description": "When dealing with Django models accessed by multiple people, you want a way to make sure two requests don’t perform writes at the same time.",
             "author": {
                 "name": "Nick Sweeting",
                 "title": "OddSlingers CTO",
                 "handle": "@theSquashSH",
                 "url": "https://twitter.com/theSquashSH",
                 "image": "/static/nick.jpg"
+            }
+        },
+        "reduxsharing": {
+            "date": "2016-02-18",
+            "title": "Sharing State Between Redux Reducers",
+            "url": "/posts/Sharing-State-Between-Redux-Reducers.html",
+            "tags": ["React", "Redux", "Javascript", "State Management"],
+            "length": "2 min read",
+            "height": "1050px",
+            "iframe": "https://docs.oddslingers.com/s/SyztFSDAM",
+            "description": "When writing an app using Redux and React, you may run into the common problem of having to share state between multiple components in your app.",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
+            }
+        },
+        "downswings": {
+            "date": "2009-02-23",
+            "title": "Downswings and the Information Game",
+            "url": "/posts/Downswings-and-the-Information-Game.html",
+            "tags": ["Game Theory", "Poker Theory"],
+            "image": "/static/cryptocurrency.png",
+            "length": "6 min read",
+            "height": "70vh",
+            "iframe": "https://docs.oddslingers.com/s/B186oSPAM",
+            "description": "I often hear players say, “I hate that site. It’s completely rigged. I can never win there.” Perhaps those players simply ran bad at first on that site...",
+            "author": {
+                "name": "Max McCrea",
+                "title": "OddSlingers CEO",
+                "handle": "@cowpig",
+                "url": "https://twitter.com/ACowpig",
+                "image": "/static/max.jpg"
             }
         }
     },
