@@ -43,7 +43,7 @@ pip3 install flask
 
 ### Editing header/footer/other code
 
-1. edit base.html and any other relevant templates
+1. edit `base.html`, `static/main.css`, `content.json` and any other relevant templates
 2. rebuild site
 3. new changes should appear on site
 
