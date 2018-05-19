@@ -1,8 +1,6 @@
 <div class="social-links">
-    Follow us on:<br/><br/>
-    {% for site in SOCIAL.values() %}
-        &nbsp;
-        <a href="{{site.url}}" title="{{site.title}}" target="_blank" rel="noopener"><i class="fa fa-{{site.icon}}"></i></a>
-        &nbsp;
-    {% endfor %}
+    <div class="follow-intro">Follow us on:</div>
+    <div class="follow-links">
+        {% for site in SOCIAL.values() %}<a href="{{site.url}}" title="{{site.title}}" target="_blank" rel="noopener"><i class="fa fa-{{site.icon}}"></i></a>{% endfor %}
+    </div>
 </div>

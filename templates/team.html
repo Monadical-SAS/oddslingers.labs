@@ -2,84 +2,79 @@
 
 {% block title %}Team{% endblock %}
 {% block subtitle %}Team{% endblock %}
-
+{% block logo %}
+    <center>
+        <img src="static/oddslingers.png"/>
+    </center>
+{% endblock %}
 {% block article %}
     <canvas class="animated-color-grid" height="100" style="border-bottom: 3px solid #ddd"></canvas>
-    <br/><br/><br/>
     <div class="container">
-        <center>
+        <div class="section-title">
             <h2>We value clean design, simplicity, transparency, and security.</h2>
-        </center>
-        <br/>
-        <div class="row">
-            <div class="col-md-4 text-center">
+        </div>
+        <div class="row workers">
+            <div class="worker col-md-4 text-center">
                 <h2><a href="https://cowpig.github.io/">Max McCrea</a></h2>
                 <h3>Co-Founder / CEO</h3>
                 <img src="static/max.jpg" height="300"/>
             </div>
-            <div class="col-md-4 text-center">
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+            <div class="worker col-md-4 text-center">
                 <h1>We're Hiring!</h1>
-                <br/>
-                - Chief of Marketing<br/>
-                - Full-Stack Engineer<br/>
-                - React Native Engineer<br/>
-                <br/>
+                <div class="hiring-list">
+                    <ul>
+                        <li>Chief of Marketing</li>
+                        <li>Full-Stack Engineer</li>
+                        <li>React Native Engineer</li>
+                    </ul>
+                </div>
                 <a href="https://monadical.com/apply" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px" target="_blank">
                     Apply Now
-                </a><br/>
+                </a>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="worker col-md-4 text-center">
                 <h2><a href="https://nicksweeting.com">Nick Sweeting</a></h2>
                 <h3>Co-Founder / CTO</h3>
                 <img src="static/nick.jpg" height="300"/>
             </div>
         </div>
-        <br/><br/><br/><br/>
-
-        <div class="row">
-            <div class="col-md-4 text-center">
+        <div class="row workers">
+            <div class="worker col-md-4 text-center">
                 <h2><a href="#">Ana Gonzalez</a></h2>
                 <h3>COO</h3>
                 <img src="static/ana.jpg" width="300px"/>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="worker col-md-4 text-center">
                 <h2><a href="https://github.com/yamijuan">Juan Diego Garcia</a></h2>
                 <h3>Full-Stack Engineer</h3>
                 <img src="static/juan.jpg" width="300px"/>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="worker col-md-4 text-center">
                 <h2><a href="http://miltonlenis.com/">Milton Lenis</a></h2>
                 <h3>Full-Stack Engineer</h3>
                 <img src="static/milton.jpg" width="300px"/>
             </div>
         </div>
-
         <hr/>
-        <center>
+        <div class="section-title">
             <h2>And many more who have helped along the way...</h2>
-        </center>
-
-        <br/>
+        </div>
         <center>
-            For technical articles &amp; posts, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page.<br/><br/>
-            <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-github"></i> Github
-            </a>
-            &nbsp; 
-            <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
-                <i class="fa fa-twitter"></i> Twitter
-            </a>
-            &nbsp; 
-            <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
-                <i class="fa fa-linkedin"></i> LinkedIn
-            </a>
+            <div>For technical articles &amp; posts, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page.</div>
+            <div class="library">
+                <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
+                    <i class="fa fa-github"></i> Github
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                &nbsp; 
+                <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
         </center>
-        <br/><br/><br/><br/>
     </div>
     <canvas class="animated-color-grid" height="100"></canvas>
 {% endblock %}

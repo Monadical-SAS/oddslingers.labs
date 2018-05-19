@@ -2,53 +2,51 @@
 
 {% block title %}Posts &amp; Articles{% endblock %}
 {% block subtitle %}Articles{% endblock %}
+{% block logo %}
+    <center>
+        <img src="static/oddslingers.png"/>
+    </center>
+{% endblock %}
 
 {% block article %}
     <!--<canvas class="animated-color-grid" height="100"></canvas>-->
     <div class="container post">
-        <br/>
-        <br/><br/>
-        <div class="row">
+        <div class="row articles">
             {% for post in POSTS.values() %}
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="{{post.url}}">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             {{post.length}}
-                        </span><br/><br/>
-                        <h2 style="height: 80px">{{post.title}}</h2>
+                        </button>
+                        <h2>{{post.title}}</h2>
                     </a>
 
-                    <small>{{post.description}}</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">{{post.description}}</div>
+                    <div class="post-tags">
                         {% for tag in post.tags %}
-                            <span class="label">#{{tag}}</span>&nbsp;
+                            <span class="label">#{{tag}}</span>
                         {% endfor %}
                     </div>
-                    <br/>
-                    <small>{{post.author.name}} - {{post.date}}</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">{{post.author.name}} - {{post.date}}</div>
                 </div>
             {% endfor %}
         </div>
-
-
-        <br/><br/><br/><br/>
         <center>
-            For code &amp; projects, see the <a href="{{PAGES.code.url}}">{{PAGES.code.title}}</a> page.<br/><br/>
-            <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-github"></i> Github
-            </a>
-            &nbsp; 
-            <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-twitter"></i> Twitter
-            </a>
-            &nbsp; 
-            <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-linkedin"></i> LinkedIn
-            </a>
+            <div>For code &amp; projects, see the <a href="{{PAGES.code.url}}">{{PAGES.code.title}}</a> page.</div>
+            <div class="library">
+                <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
+                    <i class="fa fa-github"></i> Github
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                &nbsp; 
+                <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
         </center>
-        <br/><br/><br/><br/>
-    </div>
+</div>
     <canvas class="animated-color-grid" height="100"></canvas>
 {% endblock %}

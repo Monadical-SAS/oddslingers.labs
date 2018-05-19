@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{SITE_TITLE}} | {% block title %}Home{% endblock %}</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
@@ -21,54 +22,54 @@
         {% block header %}
         <header>
             {% block headerbefore %}
-            {% endblock %}
-
-            <nav class="navbar navbar-expand-sm navbar-light" data-toggle="affix">
-                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            {% endblock %}<nav class="navbar navbar-expand-sm navbar-light">
+                <div class="nav-bar-wrapper mx-sm-auto d-sm-flex d-block flex-sm-nowrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse text-center">
-                        <ul class="navbar-nav navbar-left" style="min-width: 370px;border: 0px solid red;">
-                            <li class="nav-item active" style="margin-right: 5px">
-                                <a class="nav-link" href="{{PAGES.index.url}}">{{PAGES.index.title}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{PAGES.code.url}}">{{PAGES.code.title}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{PAGES.team.url}}">{{PAGES.team.title}}</a>
-                            </li>
-                            <li class="nav-item" style="margin-left: 5px; margin-right: 5px">
-                                <a class="nav-link" href="{{PAGES.whitepaper.url}}">{{PAGES.whitepaper.title}}</a>
-                            </li>
-                        </ul>
-                        
-                        <h1 class="nav-item main-brand-link">
-                            {% block logo %}{% endblock %}
-                            <a href="{{PAGES.index.url}}">{{SITE_TITLE}}</a><br/>
-                            <small><i class="fa fa-angle-double-right"></i>  {% block subtitle %}{% endblock %} <i class="fa fa-angle-double-left"></i></small>
-                        </h1>
-
-                        <ul class="navbar-nav navbar-right" style="min-width:370px;border: 0px solid red;">
-                            <li class="nav-item" style="margin-left: 15px">
-                                <a class="nav-link" href="{{PAGES.apply.url}}">{{PAGES.apply.title}}</a>
-                            </li>
-                            <li class="nav-item" style="margin-left: 25px;"">
-                                <a class="beta-btn nav-link btn btn-success btn-shadow" href="{{BLITZKA.Signup.url}}">
-                                    ♠<span class="diamond">♦</span>
-                                    Play (<span class="neon">BETA</span>)&nbsp;
-                                </a>
-                            </li>
-                        </ul>
+                    <a class="navbar-brand" href="{{PAGES.index.url}}">
+                        {% block logo %}{% endblock %}
+                        <h1>{{SITE_TITLE}}</h1>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav navbar-left ">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{PAGES.index.url}}">{{PAGES.index.title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{PAGES.code.url}}">{{PAGES.code.title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{PAGES.team.url}}">{{PAGES.team.title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{PAGES.whitepaper.url}}">{{PAGES.whitepaper.title}}</a>
+                                    </li>
+                                </ul>
+                                
+                                <h1 class="nav-item main-brand-link d-none d-sm-block">
+                                    {{ self.logo() }}
+                                    <a href="{{PAGES.index.url}}">{{SITE_TITLE}}</a><br/>
+                                    <small><i class="fa fa-angle-double-right"></i>  {{ self.subtitle() }} <i class="fa fa-angle-double-left"></i></small>
+                                </h1>
+        
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{PAGES.apply.url}}">{{PAGES.apply.title}}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="beta-btn nav-link btn btn-success btn-shadow" href="{{BLITZKA.Signup.url}}">
+                                            ♠<span class="diamond">♦</span>
+                                            Play (<span class="neon">BETA</span>)&nbsp;
+                                        </a>
+                                    </li>
+                                </ul>
                     </div>
                 </div>
-            </nav>
-
-        </header>
+            </nav></header>
         {% endblock %}
         
 
@@ -85,16 +86,9 @@
             {% endblock %}
             <div class="container text-center text-darkgrey">
                 {% block footersocial %}
-                    <br/><br/>
                     {% include 'social.html' %}
                 {% endblock %}
-
-                {% block footercopyright %}
-                    <br/>
-                    <small>OddSlingers © 2018</small>
-                    <br/>
-                {% endblock %}
-
+                {% block footercopyright %}<small>OddSlingers © 2018</small>{% endblock %}
             </div>
             {% block footerafter %}
             {% endblock %}

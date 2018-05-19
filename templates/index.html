@@ -5,32 +5,29 @@
 
 {% block logo %}
     <center>
-        <img src="static/oddslingers.png" height="100px"/>
+        <img src="static/oddslingers.png"/>
     </center>
-    <br/>
 {% endblock %}
 
 {% block article %}
 
     <div class="container">
-        <br/><br/><br/><br/><br/>
-
-        <div class="row">
-            <div class="col-md-4 text-center">
+        <div class="row container__steps">
+            <div class="container__step col-md-4 text-center">
                 <h2 style="color:red">♥</h2><br/>
                 <h2>1.  Make Poker Fun Again</h2>
                 <div>introduce new game variants</div>
                 <div>focus on spectator enjoyment</div>
                 <div>personalized coaching for beginners</div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="container__step col-md-4 text-center">
                 <h2><i class="fa fa-wifi" style="color:333"></i></h2><br/>
                 <h2>2. Live-Video Stream It</h2>
                 <div>real-time audio &amp; video + chat</div>
                 <div>high-skill players earn winnings</div>
                 <div>engaging streamers earn revenue</div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="container__step col-md-4 text-center">
                 <h2><img src="static/chips.png" height="40px"></h2><br/>
                 <h2>3. Allow Spectator Betting</h2>
                 <div>house-odds + P2P market making</div>
@@ -38,40 +35,17 @@
                 <div>blockchain-backed payments processing</div>
             </div>
         </div>
-        <br/><br/><br/><br/><br/><br/>
-        <!--
-        <div class="row timeline">
-            <div class="col-md-4">
-                <h2 class="timeline">Soft Launch &amp; Fundraising</h2>
-            </div>
-            <div class="col-md-4">
-                <h2 class="timeline">BETA Testing</h2>
-            </div>
-            <div class="col-md-4">
-                <h2 class="timeline" style="color: #555">2019 Real-money release</h2>
-            </div>
-        </div>
-        <div class="progress ht-tm-element">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <br/>
-        <h2 style="font-size: 20px">Development is 65% Complete!</h2>
-        -->
-
         <center>
-            <a href="{{BLITZKA.Signup.url}}" class="btn beta-btn btn-shadow btn-success" style="font-size: 22px">
+            <a href="{{BLITZKA.Signup.url}}" class="btn beta-btn btn-shadow btn-success">
                 <span style="color:black">♠</span>
                 <span style="color:red">♦</span>
                 Play now with <span class="neon">5,000</span> free chips
                 <span style="color:black">♣</span>
                 <span style="color:red">♥</span>
             </a>
-
-            <br/><br/>or<br/>
-            <a href="{{PAGES.articles.url}}"><br/>Read latest news updates...</a>
+            <div class="m-4">or</div>
+            <a href="{{PAGES.articles.url}}">Read latest news updates...</a>
         </center>
-    </div>
-    <br/>
-    <div class="row">
+    </div><div class="row">
     </div>
 {% endblock %}
