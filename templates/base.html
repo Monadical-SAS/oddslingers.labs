@@ -50,7 +50,7 @@
                                     </li>
                                 </ul>
                                 
-                                <h1 class="nav-item main-brand-link d-none d-sm-block">
+                                <h1 class="nav-item main-brand-link d-none d-sm-block {% block enableLogo %}{% endblock %}">
                                     {{ self.logo() }}
                                     <a href="{{PAGES.index.url}}">{{SITE_TITLE}}</a><br/>
                                     <small><i class="fa fa-angle-double-right"></i>  {{ self.subtitle() }} <i class="fa fa-angle-double-left"></i></small>
