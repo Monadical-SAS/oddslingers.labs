@@ -41,7 +41,6 @@ def render_post(path):
     post = POSTS[f'/posts/{path}']
     return render_template('post.html', now=datetime.now(), **CONFIG, **post)
 
-
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == '--pages':
         # just print list of page urls
