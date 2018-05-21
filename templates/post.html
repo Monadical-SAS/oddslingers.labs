@@ -2,47 +2,46 @@
 
 {% block title %}{{title}}{% endblock %}
 {% block subtitle %}Article{% endblock %}
-
+{% block logo %}
+    <center>
+        <img src="../static/oddslingers.png"/>
+    </center>
+{% endblock %}
 {% block article %}
     <canvas class="animated-color-grid" height="100"></canvas>
-    <br/><br/>
     <div class="container">
-        <small><a href="{{PAGES.articles.url}}"> Articles</a></small>
+        <small><a href="{{PAGES.articles.url}}">Articles</a></small>
         {% block post %}
-            <iframe src="{{iframe}}" style="width:100%; height: {{height or '200vh'}}"></iframe>
+            <iframe src="{{iframe}}" style="width:100%; height: 200vh"></iframe>
         {% endblock %}
-
+        <hr/>
         <div class="post-footer">
-            <hr/>
-            <div class="infobox">
-                </br><br/>
-                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-dark btn-success" target="_blank" rel="noopener">
-                    <i class="fa fa-twitter"></i> Tweet
-                </a>
-            </div>
             <div class="authorbox">
                 <div style="padding-top: 10px">
-                    {{author.name}}<br/>
+                    {{author.name}}
                     <h4>
                         {{author.title}}
-                        <br/><br/>
+                        
                         <a href="{{author.url}}" target="_blank" rel="noopener">
                             {{author.handle}}
-                        </a><br/><br/>
+                        </a>
                     </h4>
                     <h5>Published on <a href="#permalink">{{date}}</a></h5>
                 </div>
                 <img src="{{author.image}}" width="100px"/>
-                <br/><br/>
             </div>
             <div class="likebox">
                 <a href="#like" name="like">
-                    <br/>
-                    <i class="fa fa-heart-o"></i><i class="fa fa-heart"></i><br/>
+                    
+                    <i class="fa fa-heart-o"></i><i class="fa fa-heart"></i>
                     <small>Like Post</small>
                 </a>
             </div>
-            <br/>
+            <div class="infobox">
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-dark btn-success" target="_blank" rel="noopener">
+                    <i class="fa fa-twitter"></i> Tweet
+                </a>
+            </div>
         </div>
     </div>
     <canvas class="animated-color-grid" height="40"></canvas>

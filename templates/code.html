@@ -1,57 +1,53 @@
 {% extends "base.html" %}
-
 {% block title %}Code &amp; Open Source{% endblock %}
 {% block subtitle %}Projects{% endblock %}
-
+{% block logo %}
+    <center>
+        <img src="static/oddslingers.png"/>
+    </center>
+{% endblock %}
 {% block article %}
-    <div class="row" style="background-color: #1A1A1A; ">
+    <div class="row main-content">
         <canvas class="animated-color-grid" height="100"></canvas>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <br/><br/>
-                    <img src="static/oddslingers.png" style="height: 200px"/>
-                    <br/><br/>
-                    <div style="background: #fff; border-radius: 15px; padding: 20px 10px; min-height: 210px">
-                        <h2><img src="static/oddslingers-text.png" style="height: 80px"/></h2>
+            <div class="row projects">
+                <div class="col-md-6 text-center project">
+                    <img src="static/oddslingers.png"/>
+                    <div class="project__description">
+                        <img src="static/oddslingers-text.png"/>
                         Free play-chip poker with live video streaming &amp; side-betting. 
                         Our focus as a company is here, 
                         developing the core game &amp; platform functionality, and getting licenses to operate 
-                        real-money games around the world. See OddSlingers.com for <a href="{{BLITZKA.About.url}}">more info...</a>.
-                        <br/><br/>
-                        <a href="{{BLITZKA.Signup.url}}" class="btn beta-btn btn-shadow btn-success" style="font-size: 22px">
-                            ♠<span class="diamond">♦</span> Play the Poker <span class="neon">BETA</span> ♠<span class="diamond">♦</span>
-                        </a>
+                        real-money games around the world. <br />See OddSlingers.com for <a href="{{BLITZKA.About.url}}">more info...</a>
+                        <div class="play-btn">
+                            <a href="{{BLITZKA.Signup.url}}" class="btn beta-btn btn-shadow btn-success">
+                                ♠<span class="diamond">♦</span> Play the Poker <span class="neon">BETA</span> ♠<span class="diamond">♦</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <br/><br/>
-                    <img src="static/ball.png" style="height: 200px; border-radius: 10px"/>
-                    <br/><br/>
-                    
-                    <div style="background: #fff; border-radius: 15px; padding: 20px 10px; min-height: 210px">
-                        <img src="static/redux-time.png" style="height: 80px; margin-bottom: 10px; border-radius: 20px"/>
-                        <br/>
-                        A novel approach to functional, declarative animations in the frontend. 
-                        This is an animation library powered by Redux, 
-                        it supports CSS animations, React, Three.js and any other pure render layer.<br/>
-                        See the redux-time website for <a href="https://monadical-sas.github.io/redux-time/">more info</a>...
-                        <br/><br/>
-                        <a href="https://github.com/Monadical-SAS/redux-time" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
-                            Github
-                        </a> &nbsp; 
-                        <a href="https://monadical-sas.github.io/redux-time/#documentation" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
-                            Docs
-                        </a> &nbsp; 
-                        <a href="https://monadical-sas.github.io/redux-time/examples/" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
-                            Explore Examples
-                        </a>
-                        <br/>
+                <div class="col-md-6 text-center project">
+                    <img class="special-image" src="static/ball.png"/>
+                    <div class="project__description">
+                        <img src="static/redux-time.png"/>
+                        <div>
+                            A novel approach to functional, declarative animations in the frontend. 
+                            This is an animation library powered by Redux, 
+                            it supports CSS animations, React, Three.js and any other pure render layer.<br/>
+                            See the redux-time website for <a href="https://monadical-sas.github.io/redux-time/">more info...</a>
+                        </div>
+                        <div class="project__description--links">
+                            <a href="https://github.com/Monadical-SAS/redux-time" class="btn btn-sm btn-shadow btn-success btn-light">
+                                Github
+                            </a> &nbsp; 
+                            <a href="https://monadical-sas.github.io/redux-time/#documentation" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
+                                Docs
+                            </a> &nbsp; 
+                            <a href="https://monadical-sas.github.io/redux-time/examples/" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
+                                Explore Examples
+                            </a>
+                        </div>
                     </div>
-                    <br/>
-                </div>
-                <div class="col-md-12">
-                    <br/>
                 </div>
             </div>
         </div>
@@ -59,117 +55,118 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <br/><br/><br/>
-            </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>warped-time</h2>
                 <p>Server time synchronization &amp; speed control</p>
-                <a href="https://github.com/Monadical-SAS" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/Monadical-SAS" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a> &nbsp;
-                <a href="https://monadical-sas.github.io/warped-time/" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://monadical-sas.github.io/warped-time/" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Docs
                 </a>
-                <br/><br/><br/>
+                
             </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>channels-router</h2>
                 <p>Socket message router for django-channels</p>
-                <a href="https://github.com/Monadical-SAS/django-channels-router" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/Monadical-SAS/django-channels-router" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a> &nbsp;
-                <a href="https://github.com/Monadical-SAS/django-channels-router/blob/master/examples/" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://github.com/Monadical-SAS/django-channels-router/blob/master/examples/" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Examples
                 </a>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>storycoin</h2>
                 <p>Custom blockchain implementation in Rust &amp; Python</p>
-                <a href="https://github.com/cowpig/blockchain" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/cowpig/blockchain" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a>
-                <br/><br/><br/><br/>
+                
             </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>crypto-trader</h2>
                 <p>Algorithic trading toolkit for Gemini &amp; Bitfinex</p>
-                <a href="https://github.com/pirate/crypto-trader" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/pirate/crypto-trader" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a> &nbsp;
-                <a href="https://github.com/pirate/crypto-trader#api-documentation" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://github.com/pirate/crypto-trader#api-documentation" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Docs
                 </a> &nbsp;
-                <a href="https://github.com/pirate/crypto-trader/blob/master/example.py" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://github.com/pirate/crypto-trader/blob/master/example.py" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Example
                 </a>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>bookmark-archiver</h2>
                 <p>Run your own self-hosted way-back machine!</p>
-                <a href="https://github.com/pirate/bookmark-archiver" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/pirate/bookmark-archiver" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a> &nbsp;
-                <a href="https://sweeting.me/bookmark-archiver" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://sweeting.me/bookmark-archiver" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Website
                 </a> &nbsp;
-                <a href="https://archive.sweeting.me" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://archive.sweeting.me" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Demo
                 </a>
-                <br/><br/><br/>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>netviz</h2>
                 <p>A neural network vizualizer &amp; playground.</p>
-                <a href="https://github.com/cowpig/netviz" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/cowpig/netviz" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a> &nbsp;
-                <a href="http://cowpig.github.io/netviz/viz.html" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="http://cowpig.github.io/netviz/viz.html" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Demo
                 </a>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>mesh-networking</h2>
                 <p>Layer 2 mesh network protocol testing framework</p>
-                <a href="https://github.com/pirate/mesh-networking" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/pirate/mesh-networking" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a> &nbsp;
-                <a href="https://pypi.org/project/mesh-networking/" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://pypi.org/project/mesh-networking/" class="btn btn-sm btn-shadow btn-success btn-light">
                     PyPi
                 </a> &nbsp;
-                <a href="https://github.com/pirate/mesh-networking/tree/master/examples" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary" style="font-size: 14px">
+                <a href="https://github.com/pirate/mesh-networking/tree/master/examples" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-secondary">
                     Examples
                 </a>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="library col-md-3 text-center">
                 <h2>menu-generator</h2>
                 <p>Generate Django navigation menus from dictionaries</p>
-                <a href="https://github.com/LaLogiaDePython/django-menu-generator" class="btn btn-sm btn-shadow btn-success btn-light" style="font-size: 14px">
+                <a href="https://github.com/LaLogiaDePython/django-menu-generator" class="btn btn-sm btn-shadow btn-success btn-light">
                     Github
                 </a>
-                <br/><br/><br/><br/>
+                
             </div>
         </div>
 
-        <br/>
+        
         <center>
-            For more technical articles &amp; research, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page.<br/><br/>
-            <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-github"></i> Github
-            </a>
-            &nbsp; 
-            <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
-                <i class="fa fa-twitter"></i> Twitter
-            </a>
-            &nbsp; 
-            <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
-                <i class="fa fa-linkedin"></i> LinkedIn
-            </a>
+            <div>
+                For more technical articles &amp; research, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page.
+            </div>
+            <div class="library">
+                <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
+                    <i class="fa fa-github"></i> Github
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                &nbsp; 
+                <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+            
         </center>
-        <br/><br/><br/><br/>
+        
     </div>
     <canvas class="animated-color-grid" height="100"></canvas>
 {% endblock %}

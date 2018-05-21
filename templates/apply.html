@@ -1,55 +1,70 @@
 {% extends "base.html" %}
-
 {% block title %}Become an OddSlingers Streamer{% endblock %}
 {% block subtitle %}Become a Streamer{% endblock %}
-
+{% block enableLogo %}enable-logo{% endblock %}
 {% block logo %}
     <center>
-        <img src="static/oddslingers.png" height="100px"/>
+        <img src="static/oddslingers.png"/>
     </center>
-    <br/>
 {% endblock %}
-
 {% block article %}
-    <div class="container">
-        <br/><br/>
-
+    <div class="container apply">
         <center>
             <div class="col-md-10" style="max-width: 820px">
                 <h2>Think you're good enough to stream? Prove it...</h2>
-                <br/>
-                <iframe src="https://oddslingers.com/accounts/signup/" scrolling="no" style="width: 100%; height: 600px; border: 15px solid #333; border-radius: 15px; overflow: hidden"></iframe>
-                <h2>Next month we will select the top 3 players ranked by # of hands played &amp; badges earned,
-                and they will be given their own own streaming channel &amp; audience page.</h2>
-                <br/>
+                <iframe class="first" src="https://oddslingers.com/accounts/signup/" scrolling="no"></iframe>
+                <div class="section-title">
+                    <h2>Next month we will select the top 3 players ranked by # of hands played &amp; badges earned, and they will be given their own own streaming channel &amp; audience page.</h2>
+                </div>
                 <div class="progress ht-tm-element">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: {{now.day*100/30}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <br/><Br/>
                 <h2 style="font-size: 20px">{{30 - now.day}} days left until the next qualifying round starts!</h2>
                 Enter here:
-                <iframe src="https://oddslingers.com/newsletter" width="100%" height="80px" scrolling="no" style="overflow: hidden; border: 0;border: 4px solid #333; padding: 0px;"></iframe>
+                <iframe class="second" src="https://oddslingers.com/newsletter" width="100%" height="80px" scrolling="no"></iframe>
             </div>
         </center>
-        <br/><br/>
-
         <center>
-            <a href="https://oddslingers.com/table/1-on-1" class="btn btn-shadow btn-success btn-dark" target="_blank">
-                <i class="fa fa-gamepad"></i> Play Qualifying Hands
-            </a>
-            &nbsp; 
-            <a href="https://oddslingers.com/learn" class="btn btn-shadow btn-success btn-outline-secondary btn-dark"  target="_blank">
-                <i class="fa fa-book"></i> Read the Rules
-            </a>
-            &nbsp; 
-            <a href="https://discord.gg/USPweBy" class="btn btn-shadow btn-success btn-outline-secondary btn-dark"  target="_blank">
-                <i class="fa fa-comments-o"></i> Discuss on Discord
-            </a>
-            <br/><br/>
-            For some advanced poker, game theory, and tech insights read our <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a>.<br/><br/>
+            <div class="library">
+                <a href="https://oddslingers.com/table/1-on-1" class="btn btn-shadow btn-success btn-dark" target="_blank">
+                    <i class="fa fa-gamepad"></i> Play Qualifying Hands
+                </a>
+                &nbsp; 
+                <a href="https://oddslingers.com/learn" class="btn btn-shadow btn-success btn-outline-secondary btn-dark"  target="_blank">
+                    <i class="fa fa-book"></i> Read the Rules
+                </a>
+                &nbsp; 
+                <a href="https://discord.gg/USPweBy" class="btn btn-shadow btn-success btn-outline-secondary btn-dark"  target="_blank">
+                    <i class="fa fa-comments-o"></i> Discuss on Discord
+                </a>
+            </div>
+            <div class="mt-4 mx-4">
+                For some advanced poker, game theory, and tech insights read our <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a>.
+            </div>
         </center>
 
-        <br/><br/>
+
+        <!-- <center>
+            <div>
+                For more technical articles &amp; research, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page.
+            </div>
+            <div class="library">
+                <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
+                    <i class="fa fa-github"></i> Github
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                &nbsp; 
+                <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+            
+        </center> -->
+
+
 
     </div>
     <canvas class="animated-color-grid" height="100"></canvas>
