@@ -389,6 +389,13 @@ iframe {
     margin: 3rem 0 5rem;
     align-items: center;
 }
+.worker{
+    overflow: hidden;
+}
+.worker img{
+    width: 100%;
+    height: auto;
+}
 .worker h1{
     margin-bottom: 2rem;
 }
@@ -513,7 +520,7 @@ iframe {
     /* min-width: 470px; */
 }
 .nav-bar-wrapper{
-    width: 1170px;
+    /* width: 1170px; */
 }
 .nav-bar-wrapper{
     max-width: 100%;
@@ -544,6 +551,10 @@ iframe {
     margin: 4rem 0;
 }
 
+.container__steps .container__step .icon{
+    margin: 2rem 0;
+}
+
 footer .container small{
     padding: 1rem 0;
     display: block;
@@ -560,7 +571,7 @@ footer .container small{
     background: #fff; 
     border-radius: 15px; 
     padding: 2rem; 
-    min-height: 380px;
+    min-height: 400px;
 }
 .project__description img{
     max-height: 80px;
@@ -637,13 +648,32 @@ article .apply center .progress{
     justify-content: center;
 }
 
+.container__steps .container__step ul{
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
     #navbarTogglerDemo03{
         width: 100%;
     }
+    .container__steps .container__step h2:not(.icon), .library h2{
+        font-size: 1.7rem;
+    }
+    .project__description img{
+        width: 100%;
+    }
+    .project__description--links a, .library .btn{
+        margin: 0.25rem;
+        padding: 0.25rem 0.5rem;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    nav.navbar{
+        flex-direction: column;
+    }
     .navbar .nav-bar-wrapper{
         flex-direction: column;
         align-items: center;
@@ -682,10 +712,45 @@ article .apply center .progress{
     .navbar-left, .navbar-right{
         justify-content: center;
     }
+    .container__steps .container__step h2:not(.icon) {
+        font-size: 1.31rem;
+    }
+    article .container{
+        max-width: 100%;
+    }
+    .container__steps .container__step ul {
+        font-size: 0.85rem;
+    }
+    .project__description img{
+        width: 100%;
+    }
+    .project > img{
+        height: 140px;
+    }
+    .project__description--links a, .library .btn{
+        margin: 0.25rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .section-title h2{
+        font-size: 1.8rem;
+    }
+    .worker h1{
+        font-size: 1.8rem;
+    }
+    .worker h2{
+        font-size: 1.7rem;
+    }
+    .worker h3{
+        font-size: 1.5rem;
+    }
+    
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
 
+    nav.navbar{
+        flex-direction: column;
+    }
     .navbar .nav-bar-wrapper{
         flex-direction: column;
         align-items: center;
@@ -720,6 +785,19 @@ article .apply center .progress{
     }
     .navbar-left, .navbar-right{
         justify-content: center;
+    }
+    .project__description img{
+        width: 100%;
+    }
+    .project__description--links a, .library .btn{
+        margin: 0.25rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .worker img {
+        width: 60%;
+    }
+    .worker{
+        margin: 2rem 0;
     }
 }
 
@@ -873,5 +951,8 @@ article .apply center .progress{
     .post-footer .authorbox{
         display: flex;
         align-items: center;
+    }
+    .worker img {
+        width: 70%;
     }
 }
