@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OddSlingers Labs | Posts &amp; Articles</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
@@ -21,54 +22,62 @@
         
         <header>
             
-            
-
-            <nav class="navbar navbar-expand-sm navbar-light" data-toggle="affix">
-                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="nav-bar-wrapper mx-sm-auto d-sm-flex d-block flex-sm-nowrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse text-center">
-                        <ul class="navbar-nav navbar-left" style="min-width: 370px;border: 0px solid red;">
-                            <li class="nav-item active" style="margin-right: 5px">
-                                <a class="nav-link" href="/index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/articles.html">Articles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/code.html">Code</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/team.html">Team</a>
-                            </li>
-                            <li class="nav-item" style="margin-left: 5px; margin-right: 5px">
-                                <a class="nav-link" href="/whitepaper.html">Whitepaper</a>
-                            </li>
-                        </ul>
+                    <a class="navbar-brand" href="/index.html">
                         
-                        <h1 class="nav-item main-brand-link">
-                            
-                            <a href="/index.html">OddSlingers Labs</a><br/>
-                            <small><i class="fa fa-angle-double-right"></i>  Articles <i class="fa fa-angle-double-left"></i></small>
-                        </h1>
+    <center>
+        <img src="static/oddslingers.png"/>
+    </center>
 
-                        <ul class="navbar-nav navbar-right" style="min-width:370px;border: 0px solid red;">
-                            <li class="nav-item" style="margin-left: 15px">
-                                <a class="nav-link" href="/apply.html">Become a Streamer</a>
-                            </li>
-                            <li class="nav-item" style="margin-left: 25px;"">
-                                <a class="beta-btn nav-link btn btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
-                                    ♠<span class="diamond">♦</span>
-                                    Play (<span class="neon">BETA</span>)&nbsp;
-                                </a>
-                            </li>
-                        </ul>
+                        <h1>OddSlingers Labs</h1>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav navbar-left ">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/articles.html">Articles</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/code.html">Code</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/team.html">Team</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/whitepaper.html">Whitepaper</a>
+                                    </li>
+                                </ul>
+                                
+                                <h1 class="nav-item main-brand-link d-none d-sm-block ">
+                                    
+    <center>
+        <img src="static/oddslingers.png"/>
+    </center>
+
+                                    <a href="/index.html">OddSlingers Labs</a><br/>
+                                    <small><i class="fa fa-angle-double-right"></i>  Articles <i class="fa fa-angle-double-left"></i></small>
+                                </h1>
+        
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/apply.html">Become a Streamer</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="beta-btn nav-link btn btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
+                                            ♠<span class="diamond">♦</span>
+                                            Play (<span class="neon">BETA</span>)&nbsp;
+                                        </a>
+                                    </li>
+                                </ul>
                     </div>
                 </div>
-            </nav>
-
-        </header>
+            </nav></header>
         
         
 
@@ -77,224 +86,196 @@
             
     <!--<canvas class="animated-color-grid" height="100"></canvas>-->
     <div class="container post">
-        <br/>
-        <br/><br/>
-        <div class="row">
+        <div class="row articles">
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Designing-A-Banking-System.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             10 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">How I learned to stop worrying and love atomic()</h2>
+                        </button>
+                        <h2>How I learned to stop worrying and love atomic()</h2>
                     </a>
 
-                    <small>Design strategies and common pitfalls that come into play when designing a banking service to handle concurrent transactions in a distributed environment.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">Design strategies and common pitfalls that come into play when designing a banking service to handle concurrent transactions in a distributed environment.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Django</span>&nbsp;
+                            <span class="label">#Django</span>
                         
-                            <span class="label">#ORM</span>&nbsp;
+                            <span class="label">#ORM</span>
                         
-                            <span class="label">#Database Integrity</span>&nbsp;
+                            <span class="label">#Database Integrity</span>
                         
                     </div>
-                    <br/>
-                    <small>Nick Sweeting - 2018-04-20</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Nick Sweeting - 2018-04-20</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Trustless-is-A-Myth.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             10 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">The Myth of Trustlessness</h2>
+                        </button>
+                        <h2>The Myth of Trustlessness</h2>
                     </a>
 
-                    <small>The word “trustless” implies that trust has been removed from the system altogether. But in reality, systems like Bitcoin require plenty of trust, it&#39;s just less obvious.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">The word “trustless” implies that trust has been removed from the system altogether. But in reality, systems like Bitcoin require plenty of trust, it&#39;s just less obvious.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Game Theory</span>&nbsp;
+                            <span class="label">#Game Theory</span>
                         
-                            <span class="label">#Cryptocurrencies</span>&nbsp;
+                            <span class="label">#Cryptocurrencies</span>
                         
                     </div>
-                    <br/>
-                    <small>Max McCrea - 2018-01-29</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Max McCrea - 2018-01-29</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Using-Redux-As-A-Database.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             7 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">Using the Redux Store Like a Database</h2>
+                        </button>
+                        <h2>Using the Redux Store Like a Database</h2>
                     </a>
 
-                    <small>Storing data in a normalized form allows us to calculate fast indexes for lookups.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">Storing data in a normalized form allows us to calculate fast indexes for lookups.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Redux</span>&nbsp;
+                            <span class="label">#Redux</span>
                         
-                            <span class="label">#Index</span>&nbsp;
+                            <span class="label">#Index</span>
                         
-                            <span class="label">#Memoization</span>&nbsp;
+                            <span class="label">#Memoization</span>
                         
-                            <span class="label">#SQL</span>&nbsp;
+                            <span class="label">#SQL</span>
                         
                     </div>
-                    <br/>
-                    <small>Nick Sweeting - 2017-07-27</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Nick Sweeting - 2017-07-27</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Segwit-and-the-Lightning-Network.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             11 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">An Explanation of Segwit and the Lighning Network</h2>
+                        </button>
+                        <h2>An Explanation of Segwit and the Lighning Network</h2>
                     </a>
 
-                    <small>Segwit increases total number of bytes for each transaction (very slightly), but changes the way that block size is calculated so that the signatures don’t count as much against the limit.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">Segwit increases total number of bytes for each transaction (very slightly), but changes the way that block size is calculated so that the signatures don’t count as much against the limit.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Bitcoin</span>&nbsp;
+                            <span class="label">#Bitcoin</span>
                         
-                            <span class="label">#Cryptocurrencies</span>&nbsp;
+                            <span class="label">#Cryptocurrencies</span>
                         
                     </div>
-                    <br/>
-                    <small>Max McCrea - 2017-06-24</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Max McCrea - 2017-06-24</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Reconciling-Templates-With-Components.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             9 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">Reconciling Django Templates With React Components</h2>
+                        </button>
+                        <h2>Reconciling Django Templates With React Components</h2>
                     </a>
 
-                    <small>The fundamental issue is that Django wants you to build up your pages using template fragments, and React wants to pull you into its world with JS components as the main building blocks.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">The fundamental issue is that Django wants you to build up your pages using template fragments, and React wants to pull you into its world with JS components as the main building blocks.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Django</span>&nbsp;
+                            <span class="label">#Django</span>
                         
-                            <span class="label">#React</span>&nbsp;
+                            <span class="label">#React</span>
                         
-                            <span class="label">#Templates</span>&nbsp;
+                            <span class="label">#Templates</span>
                         
-                            <span class="label">#SPA</span>&nbsp;
+                            <span class="label">#SPA</span>
                         
                     </div>
-                    <br/>
-                    <small>Nick Sweeting - 2017-03-02</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Nick Sweeting - 2017-03-02</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Django-Concurrent-Write-Safety.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             5 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">Two Approaches to Concurrent Write-Safety in Django</h2>
+                        </button>
+                        <h2>Two Approaches to Concurrent Write-Safety in Django</h2>
                     </a>
 
-                    <small>When dealing with Django models accessed by multiple people, you want a way to make sure two requests don’t perform writes at the same time.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">When dealing with Django models accessed by multiple people, you want a way to make sure two requests don’t perform writes at the same time.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Django</span>&nbsp;
+                            <span class="label">#Django</span>
                         
-                            <span class="label">#ORM</span>&nbsp;
+                            <span class="label">#ORM</span>
                         
-                            <span class="label">#Database Integrity</span>&nbsp;
+                            <span class="label">#Database Integrity</span>
                         
-                            <span class="label">#Distributed Systems</span>&nbsp;
+                            <span class="label">#Distributed Systems</span>
                         
                     </div>
-                    <br/>
-                    <small>Nick Sweeting - 2016-08-03</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Nick Sweeting - 2016-08-03</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Sharing-State-Between-Redux-Reducers.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             2 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">Sharing State Between Redux Reducers</h2>
+                        </button>
+                        <h2>Sharing State Between Redux Reducers</h2>
                     </a>
 
-                    <small>When writing an app using Redux and React, you may run into the common problem of having to share state between multiple components in your app.</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">When writing an app using Redux and React, you may run into the common problem of having to share state between multiple components in your app.</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#React</span>&nbsp;
+                            <span class="label">#React</span>
                         
-                            <span class="label">#Redux</span>&nbsp;
+                            <span class="label">#Redux</span>
                         
-                            <span class="label">#Javascript</span>&nbsp;
+                            <span class="label">#Javascript</span>
                         
-                            <span class="label">#State Management</span>&nbsp;
+                            <span class="label">#State Management</span>
                         
                     </div>
-                    <br/>
-                    <small>Nick Sweeting - 2016-02-18</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Nick Sweeting - 2016-02-18</div>
                 </div>
             
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center article">
                     <a href="/posts/Downswings-and-the-Information-Game.html">
-                        <span class="btn btn-shadow text-mono btn-outline-secondary" style="font-size: 14px">
+                        <button class="btn btn-shadow text-mono btn-outline-secondary">
                             6 min read
-                        </span><br/><br/>
-                        <h2 style="height: 80px">Downswings and the Information Game</h2>
+                        </button>
+                        <h2>Downswings and the Information Game</h2>
                     </a>
 
-                    <small>I often hear players say, “I hate that site. It’s completely rigged. I can never win there.” Perhaps those players simply ran bad at first on that site...</small>
-                    <div style="margin-top: 15px">
+                    <div class="small">I often hear players say, “I hate that site. It’s completely rigged. I can never win there.” Perhaps those players simply ran bad at first on that site...</div>
+                    <div class="post-tags">
                         
-                            <span class="label">#Game Theory</span>&nbsp;
+                            <span class="label">#Game Theory</span>
                         
-                            <span class="label">#Poker Theory</span>&nbsp;
+                            <span class="label">#Poker Theory</span>
                         
                     </div>
-                    <br/>
-                    <small>Max McCrea - 2009-02-23</small><br/>
-                    <!--<p>Socket message router for django-channels</p>--><br/>
-                    <br/><br/>
+                    <div class="author small">Max McCrea - 2009-02-23</div>
                 </div>
             
         </div>
-
-
-        <br/><br/><br/><br/>
         <center>
-            For code &amp; projects, see the <a href="/code.html">Code</a> page.<br/><br/>
-            <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-github"></i> Github
-            </a>
-            &nbsp; 
-            <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-twitter"></i> Twitter
-            </a>
-            &nbsp; 
-            <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-dark">
-                <i class="fa fa-linkedin"></i> LinkedIn
-            </a>
+            <div>For code &amp; projects, see the <a href="/code.html">Code</a> page.</div>
+            <div class="library">
+                <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">
+                    <i class="fa fa-github"></i> Github
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                &nbsp; 
+                <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
         </center>
-        <br/><br/><br/><br/>
-    </div>
+</div>
     <canvas class="animated-color-grid" height="100"></canvas>
 
         </article>
@@ -306,35 +287,14 @@
             
             <div class="container text-center text-darkgrey">
                 
-                    <br/><br/>
                     <div class="social-links">
-    Follow us on:<br/><br/>
-    
-        &nbsp;
-        <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
-        &nbsp;
-    
-        &nbsp;
-        <a href="https://github.com/Monadical-SAS" title="OddSlingers Github" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
-        &nbsp;
-    
-        &nbsp;
-        <a href="https://t.me/OddSlingers" title="OddSlingers Telegram" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a>
-        &nbsp;
-    
-        &nbsp;
-        <a href="https://discord.gg/USPweBy" title="OddSlingers Discord" target="_blank" rel="noopener"><i class="fa fa-gamepad"></i></a>
-        &nbsp;
-    
+    <div class="follow-intro">Follow us on:</div>
+    <div class="follow-links">
+        <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a><a href="https://github.com/Monadical-SAS" title="OddSlingers Github" target="_blank" rel="noopener"><i class="fa fa-github"></i></a><a href="https://t.me/OddSlingers" title="OddSlingers Telegram" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a><a href="https://discord.gg/USPweBy" title="OddSlingers Discord" target="_blank" rel="noopener"><i class="fa fa-gamepad"></i></a>
+    </div>
 </div>
                 
-
-                
-                    <br/>
-                    <small>OddSlingers © 2018</small>
-                    <br/>
-                
-
+                <small>OddSlingers © 2018</small>
             </div>
             
             
