@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OddSlingers Labs | Using the Redux Store Like a Database</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
@@ -21,16 +22,23 @@
         
         <header>
             
-            
-
-            <nav class="navbar navbar-expand-sm navbar-light" data-toggle="affix">
-                <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="nav-bar-wrapper mx-sm-auto d-sm-flex d-block flex-sm-nowrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse text-center">
-                        <ul class="navbar-nav navbar-left" style="min-width: 370px;border: 0px solid red;">
-                            <li class="nav-item active" style="margin-right: 5px">
+                    <a class="navbar-brand" href="/index.html">
+                        
+    <center>
+        <img src="../static/oddslingers.png"/>
+    </center>
+
+                        <h1>OddSlingers Labs</h1>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav navbar-left ">
+                            <li class="nav-item">
                                 <a class="nav-link" href="/index.html">Home</a>
                             </li>
                             <li class="nav-item">
@@ -42,33 +50,34 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/team.html">Team</a>
                             </li>
-                            <li class="nav-item" style="margin-left: 5px; margin-right: 5px">
+                            <li class="nav-item">
                                 <a class="nav-link" href="/whitepaper.html">Whitepaper</a>
                             </li>
                         </ul>
                         
-                        <h1 class="nav-item main-brand-link">
+                        <h1 class="nav-item main-brand-link d-none d-sm-block ">
                             
+    <center>
+        <img src="../static/oddslingers.png"/>
+    </center>
+
                             <a href="/index.html">OddSlingers Labs</a><br/>
                             <small><i class="fa fa-angle-double-right"></i>  Article <i class="fa fa-angle-double-left"></i></small>
                         </h1>
 
-                        <ul class="navbar-nav navbar-right" style="min-width:370px;border: 0px solid red;">
-                            <li class="nav-item" style="margin-left: 15px">
+                        <ul class="navbar-nav navbar-right">
+                            <li class="nav-item">
                                 <a class="nav-link" href="/apply.html">Become a Streamer</a>
                             </li>
-                            <li class="nav-item" style="margin-left: 25px;"">
+                            <li class="nav-item">
                                 <a class="beta-btn nav-link btn btn-success btn-shadow" href="https://oddslingers.com/accounts/login/">
                                     ♠<span class="diamond">♦</span>
                                     Play (<span class="neon">BETA</span>)&nbsp;
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </nav>
-
-        </header>
+            </div>
+            </nav></header>
         
         
 
@@ -76,44 +85,39 @@
         <article>
             
     <canvas class="animated-color-grid" height="100"></canvas>
-    <br/><br/>
     <div class="container">
-        <small><a href="/articles.html"> Articles</a></small>
+        <small><a href="/articles.html">Articles</a></small>
         
-            <iframe src="https://docs.oddslingers.com/s/Skcz_hUhM" style="width:100%; height: 70vh"></iframe>
+            <iframe src="https://docs.oddslingers.com/s/Skcz_hUhM" style="width:100%; height: 200vh"></iframe>
         
-
+        <hr/>
         <div class="post-footer">
-            <hr/>
-            <div class="infobox">
-                </br><br/>
-                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-dark btn-success" target="_blank" rel="noopener">
-                    <i class="fa fa-twitter"></i> Tweet
-                </a>
-            </div>
             <div class="authorbox">
                 <div style="padding-top: 10px">
-                    Nick Sweeting<br/>
+                    Nick Sweeting
                     <h4>
                         OddSlingers CTO
-                        <br/><br/>
+                        
                         <a href="https://twitter.com/theSquashSH" target="_blank" rel="noopener">
                             @theSquashSH
-                        </a><br/><br/>
+                        </a>
                     </h4>
                     <h5>Published on <a href="#permalink">2017-07-27</a></h5>
                 </div>
                 <img src="/static/nick.jpg" width="100px"/>
-                <br/><br/>
             </div>
             <div class="likebox">
                 <a href="#like" name="like">
-                    <br/>
-                    <i class="fa fa-heart-o"></i><i class="fa fa-heart"></i><br/>
+                    
+                    <i class="fa fa-heart-o"></i><i class="fa fa-heart"></i>
                     <small>Like Post</small>
                 </a>
             </div>
-            <br/>
+            <div class="infobox">
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-dark btn-success" target="_blank" rel="noopener">
+                    <i class="fa fa-twitter"></i> Tweet
+                </a>
+            </div>
         </div>
     </div>
     <canvas class="animated-color-grid" height="40"></canvas>
@@ -128,35 +132,14 @@
 
             <div class="container text-center text-darkgrey">
                 
-                    <br/><br/>
                     <div class="social-links">
-    Follow us on:<br/><br/>
-    
-        &nbsp;
-        <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a>
-        &nbsp;
-    
-        &nbsp;
-        <a href="https://github.com/Monadical-SAS" title="OddSlingers Github" target="_blank" rel="noopener"><i class="fa fa-github"></i></a>
-        &nbsp;
-    
-        &nbsp;
-        <a href="https://t.me/OddSlingers" title="OddSlingers Telegram" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a>
-        &nbsp;
-    
-        &nbsp;
-        <a href="https://discord.gg/USPweBy" title="OddSlingers Discord" target="_blank" rel="noopener"><i class="fa fa-gamepad"></i></a>
-        &nbsp;
-    
+    <div class="follow-intro">Follow us on:</div>
+    <div class="follow-links">
+        <a href="https://twitter.com/OddSlingers" title="OddSlingers Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a><a href="https://github.com/Monadical-SAS" title="OddSlingers Github" target="_blank" rel="noopener"><i class="fa fa-github"></i></a><a href="https://t.me/OddSlingers" title="OddSlingers Telegram" target="_blank" rel="noopener"><i class="fa fa-telegram"></i></a><a href="https://discord.gg/USPweBy" title="OddSlingers Discord" target="_blank" rel="noopener"><i class="fa fa-gamepad"></i></a>
+    </div>
 </div>
                 
-
-                
-                    <br/>
-                    <small>OddSlingers © 2018</small>
-                    <br/>
-                
-
+                <small>OddSlingers © 2018</small>
             </div>
             
             
