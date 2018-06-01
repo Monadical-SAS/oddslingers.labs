@@ -4,7 +4,7 @@ import sys
 import json
 from datetime import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 
 ### Config
@@ -29,6 +29,14 @@ POSTS = {post['url']: post for post in  list(CONFIG['POSTS'].values())}  # {url:
 # Similar to wordpress, pages and posts are separate.  Every page has its own template
 # in templates/page.html, but all posts use the same template + an iframe URL for the
 # post content
+
+@app.route('/')
+def index():
+    return redirect("/index.html")
+
+@app.route('/favicon.ico')
+def favicon():
+    return redirect("/static/favicon.ico")
 
 @app.route('/<path>')
 def render_page(path):
