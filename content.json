@@ -27,10 +27,10 @@
             "url": "/code.html",
             "template": "code.html"
         },
-        "apply": {
+        "stream": {
             "title": "Stream",
-            "url": "/apply.html",
-            "template": "apply.html"
+            "url": "/stream.html",
+            "template": "stream.html"
         }
     },
     "POSTS": {
