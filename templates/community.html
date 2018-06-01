@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}{{PAGES.community.title}}{% endblock %}
+{% block subtitle %}{{PAGES.community.title}}{% endblock %}
+{% block enableLogo %}enable-logo{% endblock %}
+{% block article %}
+    <div class="container">
+        <center>
+            <h2>Join the poker community and start playing on our free BETA platform:</h2>
+
+            <a class="beta-btn nav-link btn btn-lg btn-success btn-shadow" href="{{BLITZKA.Signup.url}}">
+                <i>♠</i> <em>♦</em> &nbsp;
+                Sign up now with <span class="neon">5,000</span> free chips (BETA) &nbsp;
+                <i>♣</i> <em>♥</em>
+            </a>
+            <hr/><br/>
+            <h2>Or chat with the team and stay tuned for upcoming releases:</h2>
+            <div class="library">
+                <a href="https://discord.gg/USPweBy" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-gamepad"></i> Discord
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Facebook
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Reddit
+                </a>
+                &nbsp; 
+                <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                    <i class="fa fa-twitter"></i> Telegram
+                </a>
+            </div>
+        </center>
+        <div class="row workers">
+            <div class="col-md-8" style="height: 400px;">
+                <iframe src="https://discordapp.com/widget?id=359792659369558026&amp;theme=dark" style="width: 100%; height:400px; border:0"></iframe>
+            </div>
+            <div class="col-md-4" style="height: 400px;overflow: scroll">            
+                <a class="twitter-timeline" href="https://twitter.com/OddSlingers?ref_src=twsrc%5Etfw">Tweets by OddSlingers</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+        <iframe class="second" src="https://oddslingers.com/newsletter" width="100%" height="80px" scrolling="no" style="height:70px"></iframe>
+        <center>
+            <hr/>
+            <div>For poker industry updates and technical articles, see the <a href="{{PAGES.articles.url}}">{{PAGES.articles.title}}</a> page, or follow us on:</div>
+            <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                <i class="fa fa-github"></i> Github
+            </a>
+            &nbsp; 
+            <a href="https://twitter.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                <i class="fa fa-twitter"></i> Twitter
+            </a>
+            &nbsp; 
+            <a href="https://linkedin.com/OddSlingers" class="btn btn-shadow btn-success btn-outline-secondary btn-dark">
+                <i class="fa fa-linkedin"></i> LinkedIn
+            </a>
+        </center>
+    </div>
+    <canvas class="animated-color-grid" height="100"></canvas>
+{% endblock %}
+

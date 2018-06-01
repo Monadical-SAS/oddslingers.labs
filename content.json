@@ -6,15 +6,10 @@
             "url": "/index.html",
             "template": "index.html"
         },
-        "team": {
-            "title": "Team",
-            "url": "/team.html",
-            "template": "team.html"
-        },
-        "code": {
-            "title": "Code",
-            "url": "/code.html",
-            "template": "code.html"
+        "community": {
+            "title": "Community",
+            "url": "/community.html",
+            "template": "community.html"
         },
         "articles": {
             "title": "Articles",
@@ -26,8 +21,13 @@
             "url": "/whitepaper.html",
             "template": "whitepaper.html"
         },
+        "code": {
+            "title": "Code",
+            "url": "/code.html",
+            "template": "code.html"
+        },
         "apply": {
-            "title": "Become a Streamer",
+            "title": "Stream",
             "url": "/apply.html",
             "template": "apply.html"
         }
