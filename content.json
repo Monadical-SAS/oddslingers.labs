@@ -1,5 +1,6 @@
 {
     "SITE_TITLE": "OddSlingers Labs",
+    "SITE_DOMAIN": "labs.oddslingers.com",
     "PAGES": {
         "index": {
             "title": "Home",
