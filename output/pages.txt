@@ -3,4 +3,4 @@ http://127.0.0.1:5000/community.html
 http://127.0.0.1:5000/articles.html
 http://127.0.0.1:5000/whitepaper.html
 http://127.0.0.1:5000/code.html
-http://127.0.0.1:5000/apply.html
+http://127.0.0.1:5000/stream.html
