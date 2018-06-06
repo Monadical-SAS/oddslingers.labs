@@ -446,7 +446,7 @@ iframe {
 
 .post-footer .authorbox img {
     width: 100px;
-    margin: 1rem;
+    /*margin: 1rem;*/
     border-radius: 50%;
 }
 .post-footer .authorbox div {
