@@ -12,7 +12,7 @@
     <div class="container">
         <small><a href="{{PAGES.articles.url}}">Articles</a></small>
         {% block post %}
-            <iframe src="{{iframe}}" style="width:100%; height: 200vh"></iframe>
+            <iframe src="{{iframe}}" style="width:100%; height: {{height|default('200vh', true)}}"></iframe>
         {% endblock %}
         <hr/>
         <div class="post-footer">
