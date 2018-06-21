@@ -7,7 +7,7 @@ green=${txtbld}$(tput setaf 2)
 white=${txtbld}$(tput setaf 7)
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 
-echo "$blue[+] Starting Flask server...$normal"
+echo "$blue[+] Starting Flask server to render pages...$normal"
 ./server > /dev/null &
 sleep 1.5
 
@@ -19,29 +19,32 @@ cp static/favicon.ico output/favicon.ico
 ./server --pages > output/pages.txt
 ./server --posts > output/posts.txt
 
-echo "$blue[+] Building pages HTML...$normal"
+echo ""
+echo "$blue[+] Saving pages as static HTML to output/...$normal"
 (cd output; wget -q $(<pages.txt))
 (cd output/posts; wget -q $(<../posts.txt))
 
 # echo "$red[*] Stopping Flask server...$normal"
 kill %1 > /dev/null
 echo ""
-echo "$green[√] Build of static site complete.$normal"
+echo "$green[√] Build of static site to output/ complete.$normal"
 echo ""
 echo ""
-echo "$red Deploying & committing in 3 sec, press Ctrl+C to cancel..."
+echo "$red Committing & deploying output/ in 3 sec, press Ctrl+C to cancel..."
 echo ""
 sleep 3
 echo ""
-echo "$blue[^] Pushing build to git...$normal"
 git add output
 git commit -q --short -m "built static site" > /dev/null
+
+echo "$blue[^] Pushing build to origin/live...$normal"
 git push origin "$current_branch":live --force
 
-echo "$blue[^] Deploying to https://labs.oddslingers.com...$normal"
+echo "$blue[^] Deploying output/ to https://labs.oddslingers.com...$normal"
 rsync -r output/ labs.oddslingers.com:/opt/labs.oddslingers.com/output
 # ssh labs.oddslingers.com "cd /opt/labs.oddslingers.com; git checkout -f live; git pull"
 
+echo ""
 echo "$green[√] Deploy to https://labs.oddslingers.com complete.$normal"
 
 echo
