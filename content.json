@@ -1,5 +1,5 @@
 {
-    "SITE_TITLE": "OddSlingers Labs",
+    "SITE_TITLE": "OddSlingers",
     "SITE_DOMAIN": "labs.oddslingers.com",
     "PAGES": {
         "index": {
@@ -13,7 +13,7 @@
             "template": "community.html"
         },
         "articles": {
-            "title": "Articles",
+            "title": " Blog ",
             "url": "/articles.html",
             "template": "articles.html"
         },
@@ -53,7 +53,7 @@
         },
         "poker-networks": {
             "date": "2018-06-05",
-            "title": "Online Poker: Where To Play?",
+            "title": "The State of Poker Platforms as of 2018",
             "url": "/posts/Review-of-Online-Poker-Networks.html",
             "tags": ["Poker", "Gaming Industry", "Cryptocurrencies"],
             "length": "14 min read",
@@ -69,7 +69,7 @@
         },
         "atomic": {
             "date": "2018-04-20",
-            "title": "How I learned to stop worrying and love atomic()",
+            "title": "Database Integrity Principles for Safe Systems",
             "url": "/posts/Designing-A-Banking-System.html",
             "tags": ["Django", "ORM", "Database Integrity"],
             "length": "10 min read",
@@ -102,7 +102,7 @@
         },
         "redux": {
             "date": "2017-07-27",
-            "title": "Using the Redux Store Like a Database",
+            "title": "The Redux Store as the Frontend's Database",
             "url": "/posts/Using-Redux-As-A-Database.html",
             "tags": ["Redux", "Index", "Memoization", "SQL"],
             "length": "7 min read",
@@ -135,7 +135,7 @@
         },
         "reconciling": {
             "date": "2017-03-02",
-            "title": "Reconciling Django Templates With React Components",
+            "title": "Reconciling Templates and JS Components",
             "url": "/posts/Reconciling-Templates-With-Components.html",
             "tags": ["Django", "React", "Templates", "SPA"],
             "length": "9 min read",
@@ -167,7 +167,7 @@
         },
         "reduxsharing": {
             "date": "2016-02-18",
-            "title": "Sharing State Between Redux Reducers",
+            "title": "Redux State-Sharing Approaches",
             "url": "/posts/Sharing-State-Between-Redux-Reducers.html",
             "tags": ["React", "Redux", "Javascript", "State Management"],
             "length": "2 min read",

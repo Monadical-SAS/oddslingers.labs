@@ -1,6 +1,6 @@
-# [OddSlingers Labs](https://labs.oddslingers.com)
+# [OddSlingers](https://labs.oddslingers.com)
 
-Simple static site powering OddSlingers Labs.
+Simple static site powering OddSlingers.
 
 Static HTML is produced using a short custom website generator powered by Flask, Jinja2, & wget.
   
