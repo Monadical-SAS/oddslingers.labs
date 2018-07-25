@@ -13,7 +13,7 @@
             "template": "community.html"
         },
         "articles": {
-            "title": " Blog ",
+            "title": "  Blog ",
             "url": "/articles.html",
             "template": "articles.html"
         },
@@ -53,7 +53,7 @@
         },
         "poker-networks": {
             "date": "2018-06-05",
-            "title": "The State of Poker Platforms as of 2018",
+            "title": "The State of Poker Platforms in 2018",
             "url": "/posts/Review-of-Online-Poker-Networks.html",
             "tags": ["Poker", "Gaming Industry", "Cryptocurrencies"],
             "length": "14 min read",

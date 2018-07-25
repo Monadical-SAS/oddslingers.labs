@@ -11,6 +11,7 @@
 {% block article %}
     <!--<canvas class="animated-color-grid" height="100"></canvas>-->
     <div class="container post">
+        <iframe class="second" src="https://oddslingers.com/newsletter" width="100%" height="80px" scrolling="no" style="height:70px"></iframe>
         <div class="row articles">
             {% for post in POSTS.values() %}
                 <div class="col-md-6 text-center article">
@@ -31,6 +32,11 @@
             {% endfor %}
         </div>
         <center>
+            <div style="height: 400px;overflow: scroll; width: 100%; max-width: 800px">            
+                <a class="twitter-timeline" href="https://twitter.com/OddSlingers?ref_src=twsrc%5Etfw">Tweets by OddSlingers</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <br/>
             <div>For code &amp; projects, see the <a href="{{PAGES.code.url}}">{{PAGES.code.title}}</a> page.</div>
             <div class="library">
                 <a href="https://github.com/Monadical-SAS" class="btn btn-shadow btn-success btn-dark">

@@ -159,6 +159,14 @@ a.btn {
     margin: 0px 5px;
 }
 
+.neon {
+    color: #FBB4FF;
+      text-shadow: 
+    -.1px 0px .25px #FBB4FF, -.2px 0px .25px #FBB4FF, -.4px 0px .25px #FBB4FF, 
+    -.1px 0px 1px #E82FF5, -.2px 0px .8px #E82FF5, -.4px 0px .8px #E82FF5, .2px 0px .5px #E82FF5,
+    -.1px 0px 10px #CB16FA, -.2px 0px 10px #CB16FA, -.4px 0px 10px #CB16FA;
+}
+
 .beta-btn {
     display: inline-block;
     margin: 2rem;
