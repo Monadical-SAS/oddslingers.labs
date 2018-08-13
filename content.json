@@ -13,7 +13,7 @@
             "template": "community.html"
         },
         "articles": {
-            "title": "  Blog ",
+            "title": "Blog",
             "url": "/articles.html",
             "template": "articles.html"
         },
