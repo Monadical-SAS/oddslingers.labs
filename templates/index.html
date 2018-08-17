@@ -4,21 +4,64 @@
 {% block subtitle %}Our Mission{% endblock %}
 {% block enableLogo %}enable-logo{% endblock %}
 
-{% block article %}
+{% block beforebody %}
+    <style>
+        body {
+            /*background-image: url(/static/suitsbg.jpg);*/
+            /*background-position: bottom right;*/
+            /*background-size: 200px 600px;*/
+            /*background-size: 400px 400px;*/
+            /*background-repeat: repeat;*/
+        }
+        .blackcard {
+            opacity: 0.7;
+            width: 200px;
+            height: auto;
+        }
+        .bg-suits {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            background-image: url(/static/suitsbg.jpg);
+            background-size: 400px 400px;
+        }
+        header .navbar {
+            background: rgba(200,200,200,0.3);
+            font-size: 18px;
+            /*background-image: url(/static/paisley.jpg);*/
+        }
+        article .container-full {
+            max-width: 1400px;
+            margin: auto;
+            float: none;
+            background: #FFF6F1;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 2px 10px 20px 24px rgba(0,0,0,0.03);
+        }
+    </style>
 
-    <div class="container">
+    <div class="bg-suits"></div>
+{% endblock %}
+
+{% block article %}
+    <div class="container-full">
         <div class="row container__steps">
             <div class="container__step col-md-4 text-center">
-                <h2 class="icon" style="color:red">♥</h2>
+                <h2 class="icon"><img src="static/heart.png" height="90px"></h2>
                 <h2>1.  Re-Invent Online Poker</h2>
                 <ul>
                     <li>introduce new game variants</li>
                     <li>focus on spectator enjoyment</li>
                     <li>personalized coaching for beginners</li>
-                </ul>               
+                </ul> 
             </div>
             <div class="container__step col-md-4 text-center">
-                <h2 class="icon" ><i class="fa fa-wifi" style="color:333"></i></h2>
+                <h2 class="icon"><img src="static/club.png" height="90px"></h2>
                 <h2>2. Live-Video Stream It</h2>
                 <ul>
                     <li>real-time audio &amp; video + chat</li>
@@ -27,7 +70,7 @@
                 </ul>
             </div>
             <div class="container__step col-md-4 text-center">
-                <h2 class="icon" ><img src="static/chips.png" height="40px"></h2>
+                <h2 class="icon"><img src="static/diamond.png" height="90px"></h2>
                 <h2>3. Allow Spectator Betting</h2>
                 <ul>
                     <li>house-odds + P2P market making</li>
@@ -44,13 +87,14 @@
                 <span style="color:black">♣</span>
                 <span style="color:red">♥</span>
             </a>
-            <br/>
+            <br/><br/>
+            <h2 class="icon"><img src="static/squiggle.png" height="130px"></h2>
+            <br/><br/>
             <a href="{{PAGES.whitepaper.url}}">More info...</a>
             <br/><br/>
             <a href="{{PAGES.articles.url}}">Read latest updates...</a>
             <br/><br/>
             <br/><br/>
         </center>
-    </div><div class="row">
     </div>
 {% endblock %}

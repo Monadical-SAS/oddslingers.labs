@@ -176,19 +176,14 @@ a.btn {
     transition: 3000ms color;
 }
 
-.beta-btn:hover .neon {
-    vertical-align: middle;
-    animation: heart .9s ease infinite;
-    -moz-animation: heart .9s ease infinite;
-    /* Firefox */
-    -webkit-animation: heart .9s ease infinite;
-    /* Safari and Chrome */
-    -o-animation: heart .9s ease infinite;
-    /* Opera */
-    transition: 500ms text-shadow;
-  }
+.beta-btn:hover .neon-hover {
+    -moz-animation: heart 1s ease infinite;
+    -webkit-animation: heart 1s ease infinite;
+    -o-animation: heart 1s ease infinite;
+    animation: heart 1s ease infinite;
+}
 
-  @keyframes heart {
+@keyframes heart {
     0%,
     100% {
       /* Enable hardware acceleration to fix laggy transitions */
@@ -216,7 +211,15 @@ a.btn {
     -.1px 0px .8px #59125E, -.2px 0px .8px #59125E, -.4px 0px .8px #59125E, .2px 0px .5px #59125E,
     -.1px 0px 3px #42114E, -.2px 0px 3px #42114E, -.4px 0px 3px #42114E;
     }
-  }
+}
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .beta-btn:hover em {
     color: red;
@@ -539,8 +542,12 @@ iframe {
 .navbar-right li{
     margin: 0 10px;
 }
-.navbar-brand{
+.navbar-brand {
     display: none;
+}
+header .main-brand-link img:hover {
+    transform: rotate(180deg);
+    transition: transform 3s;
 }
 .navbar-collapse h1 center{
     margin-bottom: 1.7rem;
