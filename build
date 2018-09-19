@@ -41,7 +41,7 @@ echo "$blue[^] Pushing build to origin/live...$normal"
 git push origin "$current_branch":live --force
 
 echo "$blue[^] Deploying output/ to https://labs.oddslingers.com...$normal"
-rsync -r output/ labs.oddslingers.com:/opt/labs.oddslingers.com/output
+rsync -r output/ labs.oddslingers.com:/opt/labs.oddslingers.com/flask/output
 # ssh labs.oddslingers.com "cd /opt/labs.oddslingers.com; git checkout -f live; git pull"
 
 echo ""
