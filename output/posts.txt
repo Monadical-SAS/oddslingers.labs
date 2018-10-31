@@ -1,3 +1,5 @@
+http://127.0.0.1:5000/posts/functional-declarative-animations.html
+http://127.0.0.1:5000/posts/Linearizing-database-operations-django.html
 http://127.0.0.1:5000/posts/Building-a-Company-Not-an-ICO.html
 http://127.0.0.1:5000/posts/Review-of-Online-Poker-Networks.html
 http://127.0.0.1:5000/posts/Designing-A-Banking-System.html

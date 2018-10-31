@@ -28,12 +28,46 @@
             "template": "code.html"
         },
         "stream": {
-            "title": "Stream",
+            "title": "Learn",
             "url": "/stream.html",
             "template": "stream.html"
         }
     },
     "POSTS": {
+        "declarative-animations": {
+            "date": "2018-10-31",
+            "title": "Declarative Animations in a Functional World",
+            "url": "/posts/functional-declarative-animations.html",
+            "tags": ["Javascript", "Animation", "Frontend"],
+            "length": "5 min read",
+            "height": "1450px",
+            "iframe": "https://docs.oddslingers.com/s/BkY7a2G3X",
+            "description": "As systems get more complex, they trend towards expressing more of their complexity as data. Animations can be defined in data too.",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
+            }            
+        },
+        "django-operation-queue": {
+            "date": "2018-09-05",
+            "title": "A Strategy for Linearizing Database Operations",
+            "url": "/posts/Linearizing-database-operations-django.html",
+            "tags": ["Django", "ORM", "Database Integrity"],
+            "length": "3 min read",
+            "height": "1450px",
+            "iframe": "https://docs.oddslingers.com/s/rymSl4D2Q",
+            "description": "Everyone wants their writes strictly ordered, if we can represent a list of write operations as a data structure, that gets easier.",
+            "author": {
+                "name": "Nick Sweeting",
+                "title": "OddSlingers CTO",
+                "handle": "@theSquashSH",
+                "url": "https://twitter.com/theSquashSH",
+                "image": "/static/nick.jpg"
+            }            
+        },
         "company-not-ico": {
             "date": "2018-06-21",
             "title": "We’re Building A Company, Not An ICO",
