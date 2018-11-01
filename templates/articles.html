@@ -24,11 +24,14 @@
                             {% endfor %}
                         </div>
                     </a>
-                    <div class="small">{{post.description}}</div>
-                    <div class="author small">{{post.author.name}} - {{post.date}}</div>
+                    <div>{{post.description}}</div>
+                    <div class="author small">
+                        <hr/>
+                        {{post.author.name}} - {{post.date}}<br/><br/>
                         <button class="btn btn-shadow text-mono btn-outline-secondary">
                             {{post.length}}
                         </button>
+                    </div>
                 </div>
             {% endfor %}
         </div>

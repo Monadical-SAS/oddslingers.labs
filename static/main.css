@@ -48,13 +48,13 @@ header {
     margin-top: 4px;
     float: none;
     width: 87%;
-    height: 200px;
+    height: 300px;
     border-radius: 15px;
     opacity: 0.6;
-    background-size: contain;
-    background-repeat: repeat;
-    background-position: left middle;
-    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-attachment: fixed;*/
     box-shadow: 0px 3px 9px 4px rgba(14, 14, 14, 0.06);
     transition: 200ms opacity ease-in-out;
 }
@@ -85,6 +85,9 @@ header {
 .article .author{
     margin-top: 1rem;
     opacity: 0.4;
+}
+.article:hover .author {
+    opacity: 1;
 }
 .article .post-tags{
     margin: 1rem;
