@@ -36,11 +36,12 @@
     "POSTS": {
         "declarative-animations": {
             "date": "2018-10-31",
+            "img": "/static/declarative-animations.jpg",
             "title": "Declarative Animations in a Functional World",
             "url": "/posts/functional-declarative-animations.html",
             "tags": ["Javascript", "Animation", "Frontend"],
             "length": "5 min read",
-            "height": "1450px",
+            "height": "3900px",
             "iframe": "https://docs.oddslingers.com/s/BkY7a2G3X",
             "description": "As systems get more complex, they trend towards expressing more of their complexity as data. Animations can be defined in data too.",
             "author": {
@@ -53,11 +54,12 @@
         },
         "django-operation-queue": {
             "date": "2018-09-05",
+            "img": "/static/django-operation-queue.jpg",
             "title": "A Strategy for Linearizing Database Operations",
             "url": "/posts/Linearizing-database-operations-django.html",
             "tags": ["Django", "ORM", "Database Integrity"],
             "length": "3 min read",
-            "height": "1450px",
+            "height": "3900px",
             "iframe": "https://docs.oddslingers.com/s/rymSl4D2Q",
             "description": "Everyone wants their writes strictly ordered, if we can represent a list of write operations as a data structure, that gets easier.",
             "author": {
@@ -70,6 +72,7 @@
         },
         "company-not-ico": {
             "date": "2018-06-21",
+            "img": "/static/company-not-ico-light.jpg",
             "title": "We’re Building A Company, Not An ICO",
             "url": "/posts/Building-a-Company-Not-an-ICO.html",
             "tags": ["Poker", "Mission", "Cryptocurrencies"],
@@ -87,6 +90,7 @@
         },
         "poker-networks": {
             "date": "2018-06-05",
+            "img": "/static/poker-networks.jpg",
             "title": "The State of Poker Platforms in 2018",
             "url": "/posts/Review-of-Online-Poker-Networks.html",
             "tags": ["Poker", "Gaming Industry", "Cryptocurrencies"],
@@ -103,6 +107,7 @@
         },
         "atomic": {
             "date": "2018-04-20",
+            "img": "/static/atomic.jpg",
             "title": "Database Integrity Principles for Safe Systems",
             "url": "/posts/Designing-A-Banking-System.html",
             "tags": ["Django", "ORM", "Database Integrity"],
@@ -119,6 +124,7 @@
         },
         "trustless": {
             "date": "2018-01-29",
+            "img": "/static/trustless.jpg",
             "title": "The Myth of Trustlessness",
             "url": "/posts/Trustless-is-A-Myth.html",
             "tags": ["Game Theory", "Cryptocurrencies"],
@@ -136,6 +142,7 @@
         },
         "redux": {
             "date": "2017-07-27",
+            "img": "/static/redux.jpg",
             "title": "The Redux Store as the Frontend's Database",
             "url": "/posts/Using-Redux-As-A-Database.html",
             "tags": ["Redux", "Index", "Memoization", "SQL"],
@@ -152,6 +159,7 @@
         },
         "segwit": {
             "date": "2017-06-24",
+            "img": "/static/segwit.jpg",
             "title": "An Explanation of Segwit and the Lighning Network",
             "url": "/posts/Segwit-and-the-Lightning-Network.html",
             "tags": ["Bitcoin", "Cryptocurrencies"],
@@ -169,6 +177,7 @@
         },
         "reconciling": {
             "date": "2017-03-02",
+            "img": "/static/reconciling.jpg",
             "title": "Reconciling Templates and JS Components",
             "url": "/posts/Reconciling-Templates-With-Components.html",
             "tags": ["Django", "React", "Templates", "SPA"],
@@ -185,6 +194,7 @@
         },
         "concurrent": {
             "date": "2016-08-03",
+            "img": "/static/concurrent.jpg",
             "title": "Two Approaches to Concurrent Write-Safety in Django",
             "url": "/posts/Django-Concurrent-Write-Safety.html",
             "tags": ["Django", "ORM", "Database Integrity", "Distributed Systems"],
@@ -201,6 +211,7 @@
         },
         "reduxsharing": {
             "date": "2016-02-18",
+            "img": "/static/reduxsharing.jpg",
             "title": "Redux State-Sharing Approaches",
             "url": "/posts/Sharing-State-Between-Redux-Reducers.html",
             "tags": ["React", "Redux", "Javascript", "State Management"],
@@ -218,6 +229,7 @@
         },
         "downswings": {
             "date": "2009-02-23",
+            "img": "/static/downswings.jpg",
             "title": "Downswings and the Information Game",
             "url": "/posts/Downswings-and-the-Information-Game.html",
             "tags": ["Game Theory", "Poker Theory"],
@@ -245,11 +257,11 @@
             "title": "OddSlingers Twitter",
             "icon": "twitter"
         },
-        // "Facebook": {
-        //     "url": "https://facebook.com/OddSlingers",
-        //     "title": "OddSlingers Facebook",
-        //     "icon": "facebook",
-        // },
+        "Facebook": {
+            "url": "https://facebook.com/OddSlingers",
+            "title": "OddSlingers Facebook",
+            "icon": "facebook"
+        },
         // "LinkedIn": {
         //     "url": "https://linkedin.com/OddSlingers",
         //     "title": "OddSlingers LinkedIn",
@@ -265,11 +277,11 @@
         //     "title": "OddSlingers SubReddit",
         //     "icon": "reddit",
         // },
-        "Telegram": {
-            "url": "https://t.me/OddSlingers",
-            "title": "OddSlingers Telegram",
-            "icon": "telegram"
-        },
+        // "Telegram": {
+        //     "url": "https://t.me/OddSlingers",
+        //     "title": "OddSlingers Telegram",
+        //     "icon": "telegram"
+        // },
         "Discord": {
             "url": "https://discord.gg/USPweBy",
             "title": "OddSlingers Discord",
