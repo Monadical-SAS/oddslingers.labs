@@ -41,7 +41,7 @@
             "url": "/posts/functional-declarative-animations.html",
             "tags": ["Javascript", "Animation", "Frontend"],
             "length": "5 min read",
-            "height": "6320px",
+            "height": "6750px",
             "iframe": "https://docs.oddslingers.com/s/BkY7a2G3X",
             "description": "As systems get more complex, they trend towards expressing more of their complexity as data. Animations can be defined in data too.",
             "author": {
@@ -59,7 +59,7 @@
             "url": "/posts/Linearizing-database-operations-django.html",
             "tags": ["Django", "ORM", "Database Integrity"],
             "length": "3 min read",
-            "height": "4000px",
+            "height": "5050px",
             "iframe": "https://docs.oddslingers.com/s/rymSl4D2Q",
             "description": "Everyone wants their writes strictly ordered, if we can represent a list of write operations as a data structure, that gets easier.",
             "author": {
@@ -255,6 +255,7 @@
         }
     },
     "BLITZKA": {
+        "Home": {"url": "https://oddslingers.com"},
         "Signup": {"url": "https://oddslingers.com/accounts/login/"},
         "About": {"url": "https://oddslingers.com/about/"},
         "Presale": {"url": "https://oddslingers.com/presale/"}
