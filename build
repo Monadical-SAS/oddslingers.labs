@@ -11,42 +11,24 @@ echo "$blue[+] Starting Flask server to render pages...$normal"
 ./server > /dev/null &
 sleep 1.5
 
-# Recreate output folder
-rm -Rf output
-mkdir -p output/posts
-cp -r static output/static
-cp static/favicon.ico output/favicon.ico
-./server --pages > output/pages.txt
-./server --posts > output/posts.txt
+# Recreate docs folder
+rm -Rf docs
+mkdir -p docs/posts
+cp -r static docs/static
+cp static/favicon.ico docs/favicon.ico
+./server --pages > docs/pages.txt
+./server --posts > docs/posts.txt
 
 echo ""
-echo "$blue[+] Saving pages as static HTML to output/...$normal"
-(cd output; wget -q $(<pages.txt))
-(cd output/posts; wget -q $(<../posts.txt))
+echo "$blue[+] Saving pages as static HTML to docs/...$normal"
+(cd docs; wget -q $(<pages.txt))
+(cd docs/posts; wget -q $(<../posts.txt))
 
 # echo "$red[*] Stopping Flask server...$normal"
 kill %1 > /dev/null
 echo ""
-echo "$green[√] Build of static site to output/ complete.$normal"
+echo "$green[√] Build of static site to docs/ complete.$normal"
 echo ""
-echo ""
-echo "$red Committing & deploying output/ in 3 sec, press Ctrl+C to cancel..."
-echo ""
-sleep 3
-echo ""
-git add output
-git commit -q --short -m "built static site" > /dev/null
-
-echo "$blue[^] Pushing build to origin/live...$normal"
-git push origin "$current_branch":live --force
-
-echo "$blue[^] Deploying output/ to https://labs.oddslingers.com...$normal"
-rsync -r output/ labs.oddslingers.com:/opt/labs.oddslingers.com/flask/output
-# ssh labs.oddslingers.com "cd /opt/labs.oddslingers.com; git checkout -f live; git pull"
-
-echo ""
-echo "$green[√] Deploy to https://labs.oddslingers.com complete.$normal"
-
-echo
-echo "Make sure to clear CloudFlare caches in order to see changes."
-echo "https://dash.cloudflare.com/413ad3842c5a82a780b582d8de8dc903/oddslingers.com/caching"
+echo "$blue[^] Commit and push build to origin/master to finish deploying...$normal"
+echo "    git push origin $current_branch:master"
+echo "    # then wait ~2-5 minutes for Github Pages to deploy"
