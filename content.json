@@ -136,11 +136,11 @@
             "iframe": "https://docs.oddslingers.com/s/SyBidc_hG",
             "description": "The word “trustless” implies that trust has been removed from the system altogether. But in reality, systems like Bitcoin require plenty of trust, it's just less obvious.",
             "author": {
-                "name": "Max McCrea",
-                "title": "OddSlingers CEO",
-                "handle": "@cowpig",
-                "url": "https://twitter.com/ACowpig",
-                "image": "/static/max.jpg"
+                "name": "cowpig",
+                "title": "barnyard abomination",
+                "handle": "cowpig",
+                "url": "https://oddslingers.com",
+                "image": "/static/oddslingers.jpg"
             }
         },
         "redux": {
@@ -173,11 +173,11 @@
             "iframe": "https://docs.oddslingers.com/s/Bk3OSBvRf",
             "description": "Segwit increases total number of bytes for each transaction (very slightly), but changes the way that block size is calculated so that the signatures don’t count as much against the limit.",
             "author": {
-                "name": "Max McCrea",
-                "title": "OddSlingers CEO",
-                "handle": "@cowpig",
-                "url": "https://twitter.com/ACowpig",
-                "image": "/static/max.jpg"
+                "name": "cowpig",
+                "title": "barnyard abomination",
+                "handle": "cowpig",
+                "url": "https://oddslingers.com",
+                "image": "/static/oddslingers.jpg"
             }
         },
         "reconciling": {
@@ -246,11 +246,11 @@
             "iframe": "https://docs.oddslingers.com/s/B186oSPAM",
             "description": "I often hear players say, “I hate that site. It’s completely rigged. I can never win there.” Perhaps those players simply ran bad at first on that site...",
             "author": {
-                "name": "Max McCrea",
-                "title": "OddSlingers CEO",
-                "handle": "@cowpig",
-                "url": "https://twitter.com/ACowpig",
-                "image": "/static/max.jpg"
+                "name": "cowpig",
+                "title": "barnyard abomination",
+                "handle": "cowpig",
+                "url": "https://oddslingers.com",
+                "image": "/static/oddslingers.jpg"
             }
         }
     },
